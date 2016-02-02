@@ -1,0 +1,50 @@
+pyminer
+=======
+
+|pypi| |docs| |travis| |coverage|
+
+Python client for the `GBIF API
+<http://www.gbif.org/developer/summary>`__.
+
+`Source on GitHub at sckott/pyminer <https://github.com/sckott/pyminer>`__
+
+Other Crossref text mining clients:
+
+* R: `rcrossref`, `ropensci/rcrossref <https://github.com/ropensci/rcrossref>`__
+* R: `fulltext`, `ropensci/fulltext <https://github.com/ropensci/fulltext>`__
+* Ruby: `textminer`, `sckott/textminer <https://github.com/sckott/textminer>`__
+
+Installation
+============
+
+Stable from pypi
+
+.. code-block:: console
+
+    pip install pyminer
+
+Development version
+
+.. code-block:: console
+
+    [sudo] pip install git+git://github.com/sckott/pyminer.git#egg=pyminer
+
+xxx
+
+Meta
+====
+
+* License: MIT, see `LICENSE file <LICENSE>`__
+* Please note that this project is released with a `Contributor Code of Conduct <CONDUCT.md>`__. By participating in this project you agree to abide by its terms.
+
+.. |pypi| image:: https://img.shields.io/pypi/v/pyminer.svg
+   :target: https://pypi.python.org/pypi/pyminer
+
+.. |docs| image:: https://readthedocs.org/projects/pyminer/badge/?version=latest
+   :target: http://pyminer.rtfd.org/
+
+.. |travis| image:: https://travis-ci.org/sckott/pyminer.svg
+   :target: https://travis-ci.org/sckott/pyminer
+
+.. |coverage| image:: https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=master&service=github
+   :target: https://coveralls.io/github/sckott/pyminer?branch=master
