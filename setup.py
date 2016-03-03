@@ -29,7 +29,7 @@ setup(
   url              = 'http://github.com/sckott/pyminer',
   license          = "MIT",
   packages         = find_packages(exclude=['test-*']),
-  install_requires = ['requests>2.7'],
+  install_requires = ['requests>2.7','habanero>0.2.0'],
   classifiers      = (
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Science/Research',
