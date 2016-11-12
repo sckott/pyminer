@@ -17,3 +17,4 @@ pyminer/miner/fetch.py
 pyminer/miner/search.py
 pyminer/parsers/__init__.py
 pyminer/parsers/parsers.py
+test/test-miner-search.py
