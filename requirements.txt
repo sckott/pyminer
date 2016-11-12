@@ -1,0 +1,4 @@
+requests>=2.11.1
+habanero>=0.2.0
+textract>=1.4.0
+lxml>=3.4.2
