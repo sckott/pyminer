@@ -1,0 +1,12 @@
+language: python
+
+sudo: false
+
+python:
+  - "2.7"
+  - "3.4"
+
+install:
+  - pip install 'requests>=2.11.1'
+  - pip install 'habanero>=0.2.0'
+  - pip install 'textract>=1.4.0'
