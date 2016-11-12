@@ -74,10 +74,11 @@ Meta
    :target: https://pypi.python.org/pypi/pyminer
 
 .. |docs| image:: https://readthedocs.org/projects/pyminer/badge/?version=latest
-   :target: http://pyminer.rtfd.org/
+   :target: http://pyminer.readthedocs.io/en/latest/?badge=latest
 
 .. |travis| image:: https://travis-ci.org/sckott/pyminer.svg
    :target: https://travis-ci.org/sckott/pyminer
 
 .. |coverage| image:: https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=master&service=github
    :target: https://coveralls.io/github/sckott/pyminer?branch=master
+
