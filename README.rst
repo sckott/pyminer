@@ -8,9 +8,10 @@ Python client for the `GBIF API
 
 `Source on GitHub at sckott/pyminer <https://github.com/sckott/pyminer>`__
 
-Other Crossref text mining clients:
+Other Crossref text mining (and related) clients:
 
 * R: `rcrossref`, `ropensci/rcrossref <https://github.com/ropensci/rcrossref>`__
+* R: `crminer`, `ropensci/crminer <https://github.com/ropenscilabs/crminer>`__
 * R: `fulltext`, `ropensci/fulltext <https://github.com/ropensci/fulltext>`__
 * Ruby: `textminer`, `sckott/textminer <https://github.com/sckott/textminer>`__
 
