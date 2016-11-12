@@ -9,15 +9,14 @@ install:
 	python setup.py install
 
 test:
-	nosetests -v --with-coverage --cover-package=pygbif
+	nosetests -v --with-coverage --cover-package=pyminer
 
 test3:
-	python3 -m "nose" -v --with-coverage --cover-package=pygbif
+	python3 -m "nose" -v --with-coverage --cover-package=pyminer
 
 docs:
 	cd docs;\
 	make html
-	# open _build/html/index.html
 
 distclean:
 	rm dist/*
