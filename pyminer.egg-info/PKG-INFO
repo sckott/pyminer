@@ -38,7 +38,39 @@ Description: pyminer
         
             [sudo] pip install git+git://github.com/sckott/pyminer.git#egg=pyminer
         
-        xxx
+        
+        Search
+        ======
+        
+        .. code-block:: python
+        
+            from pyminer import search
+            search(filter = {'has_full_text': True}, limit = 5)
+        
+        
+        Fetch
+        =====
+        
+        .. code-block:: python
+        
+            from pyminer import fetch
+            url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
+            out = fetch(url)
+            out.url
+            out.path
+            out.type
+            out.parse()
+        
+        
+        Extract
+        =======
+        
+        .. code-block:: python
+        
+            from pyminer import fetch,extract
+            url = 'http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928'
+            x = fetch(url)
+            extract(x.path)
         
         Meta
         ====

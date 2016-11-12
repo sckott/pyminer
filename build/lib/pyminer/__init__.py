@@ -10,13 +10,13 @@ pyminer is a Python client for text mining via Crossref metadata.
 
 Usage::
 
-		import pyminer
+    import pyminer
 
-		# search
-		pyminer.search(filter = {'has_full_text': True}, limit = 5)
+    # search
+    pyminer.search(filter = {'has_full_text': True}, limit = 5)
 
-		# fetch
-		url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
+    # fetch
+    url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
     out = pyminer.fetch(url)
     out.url
     out.path
@@ -35,7 +35,5 @@ __title__ = 'pyminer'
 __author__ = 'Scott Chamberlain'
 __license__ = 'MIT'
 
-from .search import search
-from .fetch import fetch
-from .extract import extract
+from .miner import search, fetch, extract
 from .parsers import parse_xml, parse_xml_string, parse_plain, parse_pdf

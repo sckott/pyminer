@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Python GBIF Client &mdash; pygbif 0.1.3.9599 documentation</title>
+  <title>pyminer &mdash; pyminer 0.0.5.9000 documentation</title>
   
 
   
@@ -30,8 +30,11 @@
   
 
   
-    <link rel="top" title="pygbif 0.1.3.9599 documentation" href="#"/>
-        <link rel="next" title="occurrences module" href="occurrences.html"/> 
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="pyminer 0.0.5.9000 documentation" href="#"/>
+        <link rel="next" title="miner module" href="miner.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -49,7 +52,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> pygbif
+            <a href="#" class="icon icon-home"> pyminer
           
 
           
@@ -59,7 +62,7 @@
             
             
               <div class="version">
-                0.1.3.9599
+                0.0.5.9000
               </div>
             
           
@@ -81,10 +84,8 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="occurrences.html">occurrences module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="registry.html">registry module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="species.html">species module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="miner.html">miner module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
 </ul>
 
             
@@ -98,7 +99,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">pygbif</a>
+        <a href="#">pyminer</a>
       </nav>
 
 
@@ -107,7 +108,7 @@
         <div class="rst-content">
           
 
-
+ 
 
 
 
@@ -115,7 +116,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="#">Docs</a> &raquo;</li>
       
-    <li>Python GBIF Client</li>
+    <li>pyminer</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -129,52 +130,55 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="python-gbif-client">
-<h1>Python GBIF Client<a class="headerlink" href="#python-gbif-client" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://pypi.python.org/pypi/pygbif"><img alt="pypi" src="https://img.shields.io/pypi/v/pygbif.svg" /></a> <a class="reference external" href="http://pygbif.rtfd.org/"><img alt="docs" src="https://readthedocs.org/projects/pygbif/badge/?version=latest" /></a> <a class="reference external" href="https://travis-ci.org/sckott/pygbif"><img alt="travis" src="https://travis-ci.org/sckott/pygbif.svg" /></a> <a class="reference external" href="https://coveralls.io/github/sckott/pygbif?branch=master"><img alt="coverage" src="https://coveralls.io/repos/sckott/pygbif/badge.svg?branch=master&amp;service=github" /></a></p>
+  <div class="section" id="pyminer">
+<h1>pyminer<a class="headerlink" href="#pyminer" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://pypi.python.org/pypi/pyminer"><img alt="pypi" src="https://img.shields.io/pypi/v/pyminer.svg" /></a> <a class="reference external" href="http://pyminer.rtfd.org/"><img alt="docs" src="https://readthedocs.org/projects/pyminer/badge/?version=latest" /></a> <a class="reference external" href="https://travis-ci.org/sckott/pyminer"><img alt="travis" src="https://travis-ci.org/sckott/pyminer.svg" /></a> <a class="reference external" href="https://coveralls.io/github/sckott/pyminer?branch=master"><img alt="coverage" src="https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=master&amp;service=github" /></a></p>
 <p>Python client for the <a class="reference external" href="http://www.gbif.org/developer/summary">GBIF API</a>.</p>
-<p><a class="reference external" href="https://github.com/sckott/pygbif">Source on GitHub at sckott/pygbif</a></p>
-<p><cite>pygbif</cite> is split up into modules for each of the major groups of API methods.</p>
+<p><a class="reference external" href="https://github.com/sckott/pyminer">Source on GitHub at sckott/pyminer</a></p>
+<p>Other Crossref text mining (and related) clients:</p>
 <ul class="simple">
-<li>Registry - Datasets, Nodes, Installations, Networks, Organizations - <a class="reference external" href="http://www.gbif.org/developer/registry">Registry API Docs</a></li>
-<li>Species - Taxonomic names - <a class="reference external" href="http://www.gbif.org/developer/species">Species API Docs</a></li>
-<li>Occurrences - Occurrence data, including the download API - <a class="reference external" href="http://www.gbif.org/developer/occurrences">Occurrences API Docs</a></li>
+<li>R: <cite>rcrossref</cite>, <a class="reference external" href="https://github.com/ropensci/rcrossref">ropensci/rcrossref</a></li>
+<li>R: <cite>crminer</cite>, <a class="reference external" href="https://github.com/ropenscilabs/crminer">ropensci/crminer</a></li>
+<li>R: <cite>fulltext</cite>, <a class="reference external" href="https://github.com/ropensci/fulltext">ropensci/fulltext</a></li>
+<li>Ruby: <cite>textminer</cite>, <a class="reference external" href="https://github.com/sckott/textminer">sckott/textminer</a></li>
 </ul>
-<p>Note that GBIF maps <a class="reference external" href="http://www.gbif.org/developer/maps">API</a> is not included in <cite>pygbif</cite>.</p>
-<p>Other GBIF clients:</p>
-<ul class="simple">
-<li>R: <a class="reference external" href="https://github.com/ropensci/rgbif">rgbif</a></li>
-</ul>
+</div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><div class="highlight"><pre>pip install pygbif
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Stable from pypi</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">pip install pyminer</span>
+</pre></div>
+</div>
+<p>Development version</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">[sudo] pip install git+git://github.com/sckott/pyminer.git#egg=pyminer</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="registry-module">
-<h1>Registry module<a class="headerlink" href="#registry-module" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pygbif</span> <span class="kn">import</span> <span class="n">registry</span>
-<span class="n">registry</span><span class="o">.</span><span class="n">dataset_metrics</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="s1">&#39;3f8a1297-3259-4700-91fc-acc4170b27ce&#39;</span><span class="p">)</span>
+<div class="section" id="search">
+<h1>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">search</span>
+<span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="species-module">
-<h1>Species module<a class="headerlink" href="#species-module" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pygbif</span> <span class="kn">import</span> <span class="n">species</span>
-<span class="n">species</span><span class="o">.</span><span class="n">name_suggest</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="s1">&#39;Puma concolor&#39;</span><span class="p">)</span>
+<div class="section" id="fetch">
+<h1>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">fetch</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">url</span>
+<span class="n">out</span><span class="o">.</span><span class="n">path</span>
+<span class="n">out</span><span class="o">.</span><span class="n">type</span>
+<span class="n">out</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="occurrences-module">
-<h1>Occurrences module<a class="headerlink" href="#occurrences-module" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">pygbif</span> <span class="kn">import</span> <span class="n">occurrences</span> <span class="k">as</span> <span class="n">occ</span>
-<span class="n">occ</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">taxonKey</span> <span class="o">=</span> <span class="mi">3329049</span><span class="p">)</span>
-<span class="n">occ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">taxonKey</span> <span class="o">=</span> <span class="mi">252408386</span><span class="p">)</span>
-<span class="n">occ</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">isGeoreferenced</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
-<span class="n">occ</span><span class="o">.</span><span class="n">download_list</span><span class="p">(</span><span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;sckott&quot;</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">occ</span><span class="o">.</span><span class="n">download_meta</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;0000099-140929101555934&quot;</span><span class="p">)</span>
-<span class="n">occ</span><span class="o">.</span><span class="n">download_get</span><span class="p">(</span><span class="s2">&quot;0000099-140929101555934&quot;</span><span class="p">)</span>
+<div class="section" id="extract">
+<h1>Extract<a class="headerlink" href="#extract" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">fetch</span><span class="p">,</span><span class="n">extract</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928&#39;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -188,15 +192,8 @@
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="occurrences.html">occurrences module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="registry.html">registry module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="species.html">species module</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="changelog_link.html#id1">0.1.4 (2015-12-05)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog_link.html#id2">0.1.1 (2015-11-03)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="changelog_link.html#id3">0.1.0 (2015-11-02)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="miner.html">miner module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
 </ul>
 </div>
 </div>
@@ -204,14 +201,14 @@
 <h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
 <p>MIT</p>
 </div>
-<div class="section" id="indices-and-tables">
-<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
-</ul>
 </div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference external" href="https://docs.python.org/2/search.html#" title="(in Python v2.7)"><span>Search Page</span></a></li>
+</ul>
 </div>
 
 
@@ -221,7 +218,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="occurrences.html" class="btn btn-neutral float-right" title="occurrences module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="miner.html" class="btn btn-neutral float-right" title="miner module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -231,7 +228,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2015, Scott Chamberlain.
+        &copy; Copyright 2016, Scott Chamberlain.
 
     </p>
   </div>
@@ -253,7 +250,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.1.3.9599',
+            VERSION:'0.0.5.9000',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

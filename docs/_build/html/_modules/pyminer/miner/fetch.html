@@ -1,0 +1,245 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyminer.miner.fetch &mdash; pyminer 0.0.5.9000 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="pyminer 0.0.5.9000 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> pyminer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.5.9000
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../miner.html">miner module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../parsers.html">parsers module</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">pyminer</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>pyminer.miner.fetch</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyminer.miner.fetch</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">..crutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">..min_er</span> <span class="k">import</span> <span class="n">Miner</span>
+
+<span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get full text</span>
+
+<span class="sd">    Work easily for open access papers, but for closed. For non-OA papers, use</span>
+<span class="sd">    Crossref&#39;s Text and Data Mining service, which requires authentication and</span>
+<span class="sd">    pre-authorized IP address. Go to https://apps.crossref.org/clickthrough/researchers</span>
+<span class="sd">    to sign up for the TDM service, to get your key. The only publishers</span>
+<span class="sd">    taking part at this time are Elsevier and Wiley.</span>
+
+<span class="sd">    :param url: [String] A url for full text</span>
+
+<span class="sd">    :return: [Mined] An object of class Mined, with methods for extracting</span>
+<span class="sd">    the url requested, the file path, and parsing the plain text, XML, or extracting</span>
+<span class="sd">    text from the pdf.</span>
+
+<span class="sd">    XML returns object of class lxml.etree._Element, which you can parse using</span>
+<span class="sd">    for example lxml</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        import pyminer</span>
+
+<span class="sd">        # pdf</span>
+<span class="sd">        url = &quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
+<span class="sd">        out = pyminer.fetch(url)</span>
+<span class="sd">        out.url</span>
+<span class="sd">        out.path</span>
+<span class="sd">        out.type</span>
+<span class="sd">        out.parse()</span>
+
+<span class="sd">        # xml</span>
+<span class="sd">        url = &quot;https://peerj.com/articles/cs-23.xml&quot;</span>
+<span class="sd">        out = pyminer.fetch(url)</span>
+<span class="sd">        out.url</span>
+<span class="sd">        out.path</span>
+<span class="sd">        out.type</span>
+<span class="sd">        out.parse()</span>
+<span class="sd">        ## or drop down to individual parsing methods</span>
+<span class="sd">        from pyminer import parsers as p</span>
+<span class="sd">        p.parse_xml(out.path)</span>
+<span class="sd">        p.parse_xml_string(out.path)</span>
+
+<span class="sd">        # search first, then pass links to fetch</span>
+<span class="sd">        res = pyminer.search()</span>
+<span class="sd">        pyminer.fetch(res[&#39;url&#39;])</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">Miner</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Scott Chamberlain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.0.5.9000',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
