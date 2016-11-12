@@ -1,5 +1,8 @@
 language: python
-sudo: false
+sudo: required
+
+before_install:
+  - sudo apt-get install libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox
 
 python:
   - "2.7"
