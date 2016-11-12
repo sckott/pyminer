@@ -14,19 +14,19 @@ def fetch(url):
     :param url: [String] A url for full text
 
     :return: [Mined] An object of class Mined, with methods for extracting
-    the url requested, the file path, and parsing the plain text, XML, or extracting
-    text from the pdf.
+        the url requested, the file path, and parsing the plain text, XML, or extracting
+        text from the pdf.
 
     XML returns object of class lxml.etree._Element, which you can parse using
     for example lxml
 
     Usage::
 
-        import pyminer
+        from pyminer import miner
 
         # pdf
         url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
-        out = pyminer.fetch(url)
+        out = miner.fetch(url)
         out.url
         out.path
         out.type
@@ -34,7 +34,7 @@ def fetch(url):
 
         # xml
         url = "https://peerj.com/articles/cs-23.xml"
-        out = pyminer.fetch(url)
+        out = miner.fetch(url)
         out.url
         out.path
         out.type
@@ -45,7 +45,7 @@ def fetch(url):
         p.parse_xml_string(out.path)
 
         # search first, then pass links to fetch
-        res = pyminer.search()
-        pyminer.fetch(res['url'])
+        res = miner.search()
+        miner.fetch(res['url'])
     '''
     return Miner(url).perform()

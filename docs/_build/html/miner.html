@@ -87,6 +87,7 @@
                 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">miner module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
 </ul>
 
             
@@ -158,10 +159,10 @@ searching with specific dois. Default: 20. Max: 1000</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyminer</span>
-<span class="n">pyminer</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">pyminer</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;full_text_type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by-nc-nd/3.0&quot;</span><span class="p">})</span>
-<span class="n">pyminer</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;full_text_type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by-nc-nd/3.0&quot;</span><span class="p">})</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -181,20 +182,20 @@ taking part at this time are Elsevier and Wiley.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> &#8211; [String] A url for full text</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[Mined] An object of class Mined, with methods for extracting</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[Mined] An object of class Mined, with methods for extracting
+the url requested, the file path, and parsing the plain text, XML, or extracting
+text from the pdf.</td>
 </tr>
 </tbody>
 </table>
-<p>the url requested, the file path, and parsing the plain text, XML, or extracting
-text from the pdf.</p>
 <p>XML returns object of class lxml.etree._Element, which you can parse using
 for example lxml</p>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyminer</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
 
 <span class="c1"># pdf</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">pyminer</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">out</span><span class="o">.</span><span class="n">url</span>
 <span class="n">out</span><span class="o">.</span><span class="n">path</span>
 <span class="n">out</span><span class="o">.</span><span class="n">type</span>
@@ -202,7 +203,7 @@ for example lxml</p>
 
 <span class="c1"># xml</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://peerj.com/articles/cs-23.xml&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">pyminer</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">out</span><span class="o">.</span><span class="n">url</span>
 <span class="n">out</span><span class="o">.</span><span class="n">path</span>
 <span class="n">out</span><span class="o">.</span><span class="n">type</span>
@@ -213,8 +214,8 @@ for example lxml</p>
 <span class="n">p</span><span class="o">.</span><span class="n">parse_xml_string</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 
 <span class="c1"># search first, then pass links to fetch</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">pyminer</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
-<span class="n">pyminer</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -234,19 +235,19 @@ for example lxml</p>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyminer</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
 
 <span class="c1"># a pdf</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">pyminer</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">out</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 
 <span class="c1"># search first, then pass links to fetch</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">pyminer</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
 <span class="c1"># url = res.links_pdf()[0]</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928&#39;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">pyminer</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">pyminer</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>

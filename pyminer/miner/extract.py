@@ -11,19 +11,19 @@ def extract(path):
 
     Usage::
 
-        import pyminer
+        from pyminer import miner
 
         # a pdf
         url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
-        out = pyminer.fetch(url)
+        out = miner.fetch(url)
         out.parse()
 
         # search first, then pass links to fetch
-        res = pyminer.search(filter = {'has_full_text': True, 'license_url': "http://creativecommons.org/licenses/by/4.0"})
+        res = miner.search(filter = {'has_full_text': True, 'license_url': "http://creativecommons.org/licenses/by/4.0"})
         # url = res.links_pdf()[0]
         url = 'http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928'
-        x = pyminer.fetch(url)
-        pyminer.extract(x.path)
+        x = miner.fetch(url)
+        miner.extract(x.path)
     '''
     text = textract.process(path)
     return text

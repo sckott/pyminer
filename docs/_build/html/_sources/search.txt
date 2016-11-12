@@ -1,8 +1,0 @@
-.. _search:
-
-search module
-=============
-
-.. py:module:: pyminer
-
-.. automethod:: .search

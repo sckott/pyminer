@@ -86,6 +86,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../miner.html">miner module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../parsers.html">parsers module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog_link.html">Changelog</a></li>
 </ul>
 
             
@@ -147,19 +148,19 @@
 <span class="sd">    :param url: [String] A url for full text</span>
 
 <span class="sd">    :return: [Mined] An object of class Mined, with methods for extracting</span>
-<span class="sd">    the url requested, the file path, and parsing the plain text, XML, or extracting</span>
-<span class="sd">    text from the pdf.</span>
+<span class="sd">        the url requested, the file path, and parsing the plain text, XML, or extracting</span>
+<span class="sd">        text from the pdf.</span>
 
 <span class="sd">    XML returns object of class lxml.etree._Element, which you can parse using</span>
 <span class="sd">    for example lxml</span>
 
 <span class="sd">    Usage::</span>
 
-<span class="sd">        import pyminer</span>
+<span class="sd">        from pyminer import miner</span>
 
 <span class="sd">        # pdf</span>
 <span class="sd">        url = &quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="sd">        out = pyminer.fetch(url)</span>
+<span class="sd">        out = miner.fetch(url)</span>
 <span class="sd">        out.url</span>
 <span class="sd">        out.path</span>
 <span class="sd">        out.type</span>
@@ -167,7 +168,7 @@
 
 <span class="sd">        # xml</span>
 <span class="sd">        url = &quot;https://peerj.com/articles/cs-23.xml&quot;</span>
-<span class="sd">        out = pyminer.fetch(url)</span>
+<span class="sd">        out = miner.fetch(url)</span>
 <span class="sd">        out.url</span>
 <span class="sd">        out.path</span>
 <span class="sd">        out.type</span>
@@ -178,8 +179,8 @@
 <span class="sd">        p.parse_xml_string(out.path)</span>
 
 <span class="sd">        # search first, then pass links to fetch</span>
-<span class="sd">        res = pyminer.search()</span>
-<span class="sd">        pyminer.fetch(res[&#39;url&#39;])</span>
+<span class="sd">        res = miner.search()</span>
+<span class="sd">        miner.fetch(res[&#39;url&#39;])</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">return</span> <span class="n">Miner</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
 </pre></div>

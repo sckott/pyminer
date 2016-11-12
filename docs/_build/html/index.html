@@ -86,6 +86,7 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="miner.html">miner module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
 </ul>
 
             
@@ -156,16 +157,16 @@
 </div>
 <div class="section" id="search">
 <h1>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">search</span>
-<span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="fetch">
 <h1>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">fetch</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">out</span><span class="o">.</span><span class="n">url</span>
 <span class="n">out</span><span class="o">.</span><span class="n">path</span>
 <span class="n">out</span><span class="o">.</span><span class="n">type</span>
@@ -175,10 +176,10 @@
 </div>
 <div class="section" id="extract">
 <h1>Extract<a class="headerlink" href="#extract" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">fetch</span><span class="p">,</span><span class="n">extract</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928&#39;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">miner</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -194,6 +195,10 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="miner.html">miner module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog_link.html#id1">0.1.0 (2016-02-02)</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -207,7 +212,7 @@
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
 <li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference external" href="https://docs.python.org/2/search.html#" title="(in Python v2.7)"><span>Search Page</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
 </ul>
 </div>
 

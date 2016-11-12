@@ -18,10 +18,10 @@ def search(ids=None, member=None, filter=None, limit=500, **kwargs):
 
     Usage::
 
-        import pyminer
-        pyminer.search(filter = {'has_full_text': True}, limit = 5)
-        pyminer.search(filter = {'full_text_type': 'text/plain', 'license_url': "http://creativecommons.org/licenses/by-nc-nd/3.0"})
-        pyminer.search(filter = {'has_full_text': True, 'license_url': "http://creativecommons.org/licenses/by/4.0"})
+        from pyminer import miner
+        miner.search(filter = {'has_full_text': True}, limit = 5)
+        miner.search(filter = {'full_text_type': 'text/plain', 'license_url': "http://creativecommons.org/licenses/by-nc-nd/3.0"})
+        miner.search(filter = {'has_full_text': True, 'license_url': "http://creativecommons.org/licenses/by/4.0"})
     '''
     cr = Crossref()
     return Response(cr.works(ids = ids, limit = limit, filter = filter, **kwargs))
