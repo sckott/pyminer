@@ -2,3 +2,4 @@ requests>=2.21.0
 habanero>=0.6.2
 pdftotext>=2.1.1
 lxml>=4.2.5
+appdirs>=1.4.3

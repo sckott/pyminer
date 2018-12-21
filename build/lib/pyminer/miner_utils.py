@@ -1,7 +1,9 @@
 import uuid
 import re
+import os
 from .miner import extract
 from lxml import etree
+from appdirs import *
 
 # content and file types
 def detect_type(x):
@@ -32,7 +34,10 @@ def make_ext(x):
 def make_path(type):
   type = make_ext(type)
   uu = str(uuid.uuid4())
-  path = uu + '.' + type
+  base_path = user_cache_dir('pyminer')
+  if not os.path.exists(base_path):
+    os.makedirs(base_path)
+  path = base_path + '/' + uu + '.' + type
   return path
 
 

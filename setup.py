@@ -29,7 +29,13 @@ setup(
   url              = 'https://github.com/sckott/pyminer',
   license          = "MIT",
   packages         = find_packages(exclude=['test-*']),
-  install_requires = ['requests>=2.21.0','habanero>=0.6.2','pdftotext>=2.1.1','lxml>=4.2.5'],
+  install_requires = [
+    'requests>=2.21.0',
+    'habanero>=0.6.2',
+    'pdftotext>=2.1.1',
+    'lxml>=4.2.5',
+    'appdirs>=1.4.3'
+  ],
   classifiers      = [
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Science/Research',

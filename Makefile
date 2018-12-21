@@ -9,10 +9,7 @@ install:
 	python3 setup.py install
 
 test:
-	nosetests -v --with-coverage --cover-package=pyminer
-
-test3:
-	python3 -m "nose" -v --with-coverage --cover-package=pyminer
+	pytest --verbose
 
 docs:
 	cd docs;\
