@@ -1,4 +1,4 @@
-requests>=2.11.1
-habanero>=0.2.0
-textract>=1.4.0
-lxml>=3.4.2
+requests>=2.21.0
+habanero>=0.6.2
+pdftotext>=2.1.1
+lxml>=4.2.5

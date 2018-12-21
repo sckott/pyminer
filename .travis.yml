@@ -10,12 +10,8 @@ python:
   - "3.7-dev"
 
 install:
-  - pip install 'requests>=2.21.0'
-  - pip install 'habanero>=0.6.2'
-  - pip install 'pdftotext>=2.1.1'
-  - pip install 'lxml>=4.2.5'
-  - pip install pytest
-  - pip install vcrpy
+  - pip install -r requirements.txt
+  - pip install -e .
 
 script:
   - pytest --verbose
