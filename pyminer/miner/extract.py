@@ -1,5 +1,5 @@
 from ..crutils import *
-import textract
+import pdftotext
 
 def extract(path):
     '''
@@ -25,5 +25,10 @@ def extract(path):
         x = miner.fetch(url)
         miner.extract(x.path)
     '''
-    text = textract.process(path)
-    return text
+    try:
+        with open(path, "rb") as f:
+            pdf = pdftotext.PDF(f)
+        txt = "\n\n".join(pdf)
+    except Exception as e:
+        raise e
+    return txt

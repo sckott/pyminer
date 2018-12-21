@@ -1,16 +1,19 @@
 language: python
-sudo: required
+sudo: false
+cache: pip
 
 # before_install:
 #   - sudo apt-get install python3-pip python3-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox
 
 python:
-  - "2.7"
+  - "3.6"
+  - "3.7-dev"
 
 install:
   - pip install 'requests>=2.11.1'
   - pip install 'habanero>=0.2.0'
-  - pip install 'textract>=1.4.0'
+  - pip install 'pdftotext>=2.1.1'
+  - pip install vcrpy
 
 script:
   - nosetests -v --cover-package=pyminer

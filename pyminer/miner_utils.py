@@ -1,6 +1,6 @@
 import uuid
 import re
-from .extract import extract
+from .miner import extract
 from lxml import etree
 
 # content and file types

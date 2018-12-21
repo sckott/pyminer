@@ -15,9 +15,10 @@ def parse_xml(x):
         out = fetch(url)
         parsers.parse_xml(out.path)
     '''
-    text = read_disk(x)
-    xmlparser = etree.XMLParser()
-    tt = etree.fromstring(text, xmlparser)
+    # text = read_disk(x)
+    # xmlparser = etree.XMLParser()
+    # tt = etree.fromstring(text, xmlparser)
+    tt = etree.parse(x)
     return tt
 
 def parse_xml_string(x, encoding = "UTF-8"):
