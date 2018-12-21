@@ -1,5 +1,6 @@
 """Tests for miner module - search methods"""
 import os
+import pytest
 import vcr
 from pyminer import miner
 
