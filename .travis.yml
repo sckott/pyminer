@@ -11,6 +11,8 @@ python:
 
 install:
   - pip install -r requirements.txt
+  - pip install vcrpy
+  - pip install pytest
   - pip install -e .
 
 script:
