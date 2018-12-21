@@ -18,4 +18,4 @@ install:
   - pip install vcrpy
 
 script:
-  - nosetests -v --cover-package=pyminer
+  - pytest --verbose
