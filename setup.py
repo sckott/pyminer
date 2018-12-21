@@ -30,7 +30,7 @@ setup(
   license          = "MIT",
   packages         = find_packages(exclude=['test-*']),
   install_requires = ['requests>=2.21.0','habanero>=0.6.2','pdftotext>=2.1.1','lxml>=4.2.5'],
-  classifiers      = (
+  classifiers      = [
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Science/Research',
     'Topic :: Scientific/Engineering :: Bio-Informatics',
@@ -39,5 +39,5 @@ setup(
     'Programming Language :: Python',
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7'
-	)
+	]
 )
