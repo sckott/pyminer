@@ -1,6 +1,6 @@
-import uuid
 import re
 import os
+import hashlib
 from .miner import extract
 from lxml import etree
 from appdirs import *
@@ -31,9 +31,9 @@ def make_ext(x):
   else:
     return "txt"
 
-def make_path(type):
+def make_path(res, type):
   type = make_ext(type)
-  uu = str(uuid.uuid4())
+  uu = hashlib.sha256(res.content).hexdigest()
   base_path = user_cache_dir('pyminer')
   if not os.path.exists(base_path):
     os.makedirs(base_path)
@@ -44,9 +44,13 @@ def make_path(type):
 
 # read and write
 def write_disk(res, path):
-  f = open(path, 'wb')
-  f.write(res.content)
-  f.close()
+  # if already in cache, don't write
+  if not os.path.exists(path):
+    f = open(path, 'wb')
+    f.write(res.content)
+    f.close()
+  else:
+    print(path + " already downloaded")
 
 def read_disk(path):
   f = open(path, 'r')

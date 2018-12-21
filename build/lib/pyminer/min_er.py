@@ -19,7 +19,7 @@ class Miner(object):
       print(e)
 
     type = detect_type(r)
-    path = make_path(type)
+    path = make_path(r, type)
     write_disk(r, path)
 
     return Mined(self.url, path, type)
