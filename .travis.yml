@@ -3,7 +3,7 @@ sudo: false
 cache: pip
 
 before_install:
-  - sudo apt-get install libpoppler-cpp-dev
+  - sudo apt-get install libpoppler-cpp-dev libxml2-dev libxslt-dev
 
 python:
   - "3.6"
