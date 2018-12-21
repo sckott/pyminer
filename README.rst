@@ -68,7 +68,7 @@ Meta
 ====
 
 * License: MIT, see `LICENSE file <LICENSE>`__
-* Please note that this project is released with a `Contributor Code of Conduct <CONDUCT.md>`__. By participating in this project you agree to abide by its terms.
+* Please note that this project is released with a `Contributor Code of Conduct <CODE_OF_CONDUCT.md>`__. By participating in this project you agree to abide by its terms.
 
 .. |pypi| image:: https://img.shields.io/pypi/v/pyminer.svg
    :target: https://pypi.python.org/pypi/pyminer
