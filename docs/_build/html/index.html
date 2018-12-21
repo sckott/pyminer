@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -22,27 +24,20 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="pyminer 0.0.5.9000 documentation" href="#"/>
-        <link rel="next" title="miner module" href="miner.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="miner module" href="miner.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -83,7 +78,10 @@
           
             
             
-                <ul>
+              
+            
+            
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="miner.html">miner module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
@@ -98,34 +96,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">pyminer</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">pyminer</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
-      
-    <li>pyminer</li>
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>pyminer</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -147,24 +165,24 @@
 <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>Stable from pypi</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">pip install pyminer</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install pyminer</span>
 </pre></div>
 </div>
 <p>Development version</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">[sudo] pip install git+git://github.com/sckott/pyminer.git#egg=pyminer</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[sudo] pip install git+git://github.com/sckott/pyminer.git#egg=pyminer</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="search">
 <h1>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
 <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="fetch">
 <h1>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
 <span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">out</span><span class="o">.</span><span class="n">url</span>
@@ -176,7 +194,7 @@
 </div>
 <div class="section" id="extract">
 <h1>Extract<a class="headerlink" href="#extract" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">miner</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928&#39;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">miner</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
@@ -218,12 +236,13 @@
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="miner.html" class="btn btn-neutral float-right" title="miner module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="miner.html" class="btn btn-neutral float-right" title="miner module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -237,7 +256,7 @@
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -256,9 +275,11 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'0.0.5.9000',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -267,19 +288,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

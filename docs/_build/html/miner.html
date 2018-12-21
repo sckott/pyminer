@@ -13,6 +13,8 @@
 
   
   
+  
+  
 
   
 
@@ -22,28 +24,21 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="pyminer 0.0.5.9000 documentation" href="index.html"/>
-        <link rel="next" title="parsers module" href="parsers.html"/>
-        <link rel="prev" title="pyminer" href="index.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="parsers module" href="parsers.html" />
+    <link rel="prev" title="pyminer" href="index.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
+   
   <div class="wy-grid-for-nav">
 
     
@@ -84,7 +79,10 @@
           
             
             
-                <ul class="current">
+              
+            
+            
+              <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">miner module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
@@ -99,34 +97,54 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="index.html">pyminer</a>
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pyminer</a>
+        
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
- 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 <div role="navigation" aria-label="breadcrumbs navigation">
+
   <ul class="wy-breadcrumbs">
-    <li><a href="index.html">Docs</a> &raquo;</li>
-      
-    <li>miner module</li>
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>miner module</li>
+    
+    
       <li class="wy-breadcrumbs-aside">
         
-          
-            <a href="_sources/miner.txt" rel="nofollow"> View page source</a>
+            
+            <a href="_sources/miner.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
+    
   </ul>
+
+  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
@@ -136,20 +154,20 @@
 <span id="miner-module"></span><span id="miner"></span><h1>miner module<a class="headerlink" href="#module-pyminer" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="pyminer.miner.search">
-<code class="descclassname">miner.</code><code class="descname">search</code><span class="sig-paren">(</span><em>ids=None</em>, <em>member=None</em>, <em>filter=None</em>, <em>limit=500</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.search" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">miner.</code><code class="descname">search</code><span class="sig-paren">(</span><em>member=None</em>, <em>filter=None</em>, <em>limit=500</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search Crossref to get text mining links</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ids</strong> &#8211; [Array] DOIs (digital object identifier) or other identifiers</li>
-<li><strong>member</strong> &#8211; [String] member ids</li>
-<li><strong>filter</strong> &#8211; [Hash] Filter options. See ...</li>
-<li><strong>limit</strong> &#8211; [Fixnum] Number of results to return. Not relavant when
+<li><strong>ids</strong> – [Array] DOIs (digital object identifier) or other identifiers</li>
+<li><strong>member</strong> – [String] member ids</li>
+<li><strong>filter</strong> – [Hash] Filter options. See …</li>
+<li><strong>limit</strong> – [Fixnum] Number of results to return. Not relavant when
 searching with specific dois. Default: 20. Max: 1000</li>
-<li><strong>kwargs</strong> &#8211; any additional arguments will be passed on to
-<code class="docutils literal"><span class="pre">requests.get</span></code></li>
+<li><strong>kwargs</strong> – any additional arguments will be passed on to
+<code class="docutils literal notranslate"><span class="pre">requests.get</span></code></li>
 </ul>
 </td>
 </tr>
@@ -159,7 +177,7 @@ searching with specific dois. Default: 20. Max: 1000</li>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
 <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;full_text_type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by-nc-nd/3.0&quot;</span><span class="p">})</span>
 <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
@@ -169,10 +187,10 @@ searching with specific dois. Default: 20. Max: 1000</li>
 
 <dl class="method">
 <dt id="pyminer.miner.fetch">
-<code class="descclassname">miner.</code><code class="descname">fetch</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.fetch" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">miner.</code><code class="descname">fetch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.fetch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get full text</p>
 <p>Work easily for open access papers, but for closed. For non-OA papers, use
-Crossref&#8217;s Text and Data Mining service, which requires authentication and
+Crossref’s Text and Data Mining service, which requires authentication and
 pre-authorized IP address. Go to <a class="reference external" href="https://apps.crossref.org/clickthrough/researchers">https://apps.crossref.org/clickthrough/researchers</a>
 to sign up for the TDM service, to get your key. The only publishers
 taking part at this time are Elsevier and Wiley.</p>
@@ -180,7 +198,7 @@ taking part at this time are Elsevier and Wiley.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> &#8211; [String] A url for full text</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> – [String] A url for full text</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[Mined] An object of class Mined, with methods for extracting
 the url requested, the file path, and parsing the plain text, XML, or extracting
@@ -191,7 +209,7 @@ text from the pdf.</td>
 <p>XML returns object of class lxml.etree._Element, which you can parse using
 for example lxml</p>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
 
 <span class="c1"># pdf</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
@@ -222,20 +240,20 @@ for example lxml</p>
 
 <dl class="method">
 <dt id="pyminer.miner.extract">
-<code class="descclassname">miner.</code><code class="descname">extract</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.extract" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extract full text fro pdf&#8217;s</p>
+<code class="descclassname">miner.</code><code class="descname">extract</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.extract" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract full text fro pdf’s</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; [String] Path to a pdf file downloaded via {fetch}, or another way.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – [String] Path to a pdf file downloaded via {fetch}, or another way.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[str] a string of text</td>
 </tr>
 </tbody>
 </table>
 <p>Usage:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
 
 <span class="c1"># a pdf</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
@@ -256,15 +274,16 @@ for example lxml</p>
 
 
            </div>
+           
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="parsers.html" class="btn btn-neutral float-right" title="parsers module" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="parsers.html" class="btn btn-neutral float-right" title="parsers module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="pyminer" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="pyminer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -277,7 +296,7 @@ for example lxml</p>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -296,9 +315,11 @@ for example lxml</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'0.0.5.9000',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
         };
     </script>
       <script type="text/javascript" src="_static/jquery.js"></script>
@@ -307,19 +328,13 @@ for example lxml</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
