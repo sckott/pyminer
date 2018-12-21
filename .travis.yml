@@ -2,8 +2,8 @@ language: python
 sudo: false
 cache: pip
 
-# before_install:
-#   - sudo apt-get install python3-pip python3-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox
+before_install:
+  - sudo apt-get install libpoppler-cpp-dev
 
 python:
   - "3.6"
