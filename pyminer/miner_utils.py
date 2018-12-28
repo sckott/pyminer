@@ -34,7 +34,7 @@ def make_ext(x):
 def make_path(res, type):
   type = make_ext(type)
   uu = hashlib.sha256(res.content).hexdigest()
-  base_path = user_cache_dir('pyminer')
+  base_path = user_cache_dir('python/pyminer')
   if not os.path.exists(base_path):
     os.makedirs(base_path)
   path = base_path + '/' + uu + '.' + type

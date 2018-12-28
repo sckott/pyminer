@@ -14,6 +14,7 @@ pyminer.egg-info/top_level.txt
 pyminer/miner/__init__.py
 pyminer/miner/extract.py
 pyminer/miner/fetch.py
+pyminer/miner/links.py
 pyminer/miner/search.py
 pyminer/parsers/__init__.py
 pyminer/parsers/parsers.py

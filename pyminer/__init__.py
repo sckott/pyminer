@@ -35,5 +35,5 @@ __title__ = 'pyminer'
 __author__ = 'Scott Chamberlain'
 __license__ = 'MIT'
 
-from .miner import search, fetch, extract
+from .miner import search, fetch, extract, links
 from .parsers import parse_xml, parse_xml_string, parse_plain, parse_pdf
