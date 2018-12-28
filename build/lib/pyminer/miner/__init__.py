@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from .extract import extract
+from .miner import Miner
+from .mined import Mined
 from .fetch import fetch
-from .search import search
+from .extract import extract
 from .links import links

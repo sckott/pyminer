@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pyminer.miner.search &mdash; pyminer 0.0.6.9000 documentation</title>
+  <title>pyminer.miner.miner &mdash; pyminer 0.0.6.9000 documentation</title>
   
 
   
@@ -134,7 +134,7 @@
         
           <li><a href="../miner.html">pyminer.miner</a> &raquo;</li>
         
-      <li>pyminer.miner.search</li>
+      <li>pyminer.miner.miner</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,12 +149,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for pyminer.miner.search</h1><div class="highlight"><pre>
+  <h1>Source code for pyminer.miner.miner</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">..crutils</span> <span class="k">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">..response</span> <span class="k">import</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">.mined</span> <span class="k">import</span> <span class="n">Mined</span>
 <span class="kn">from</span> <span class="nn">habanero</span> <span class="k">import</span> <span class="n">Crossref</span>
 
-<span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Miner"><a class="viewcode-back" href="../../../Miner.html#pyminer.Miner">[docs]</a><span class="k">class</span> <span class="nc">Miner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  Miner: Class for mining Crossref articles</span>
+<span class="sd">  </span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+
+<span class="sd">  **Miner Methods**</span>
+
+<span class="sd">  * search - :func:`~pyminer.Miner.search`</span>
+
+<span class="sd">  **Setup**::</span>
+
+<span class="sd">    from pyminer import Miner</span>
+<span class="sd">    m = Miner()</span>
+<span class="sd">    # set your Crossref TDM key</span>
+<span class="sd">    Miner(tdm_key = &quot;123456&quot;)</span>
+<span class="sd">    # set a mailto address</span>
+<span class="sd">    Miner(mailto = &quot;foo@bar.com&quot;)</span>
+<span class="sd">  </span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tdm_key</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mailto</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="n">tdm_key</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">mailto</span>
+
+  <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;&lt; </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">tdm_key: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">mailto: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&gt;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+        <span class="n">sub_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Miner.search"><a class="viewcode-back" href="../../../Miner.html#pyminer.Miner.search">[docs]</a>  <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Search Crossref to get text mining links</span>
 
@@ -166,13 +198,14 @@
 <span class="sd">    :param kwargs: any additional arguments will be passed on to</span>
 <span class="sd">        ``requests.get``</span>
 
-<span class="sd">    :return: A dictionary, of results</span>
+<span class="sd">    :return: object of class :class:`~pyminer.Mined`</span>
 
 <span class="sd">    Usage::</span>
 
 <span class="sd">        # search for many</span>
-<span class="sd">        from pyminer import miner</span>
-<span class="sd">        x = miner.search(filter = {&#39;has_full_text&#39;: True}, limit = 5)</span>
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(filter = {&#39;has_full_text&#39;: True}, limit = 5)</span>
 <span class="sd">        x</span>
 <span class="sd">        x.items</span>
 <span class="sd">        x.links()</span>
@@ -182,8 +215,9 @@
 <span class="sd">        x.fetch()</span>
 
 <span class="sd">        # get by DOI</span>
-<span class="sd">        from pyminer import miner</span>
-<span class="sd">        x = miner.search(ids = &#39;10.1371/journal.pone.0033693&#39;)</span>
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.1371/journal.pone.0033693&#39;)</span>
 <span class="sd">        x</span>
 <span class="sd">        x.items</span>
 <span class="sd">        x.items.keys()</span>
@@ -191,8 +225,9 @@
 <span class="sd">        x.links_verbose()</span>
 <span class="sd">        x.fetch()</span>
 
-<span class="sd">        from pyminer import miner</span>
-<span class="sd">        x = miner.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
 <span class="sd">        x</span>
 <span class="sd">        x.links()</span>
 <span class="sd">        x.links_verbose()</span>
@@ -205,7 +240,7 @@
 
 <span class="sd">        ## many at once</span>
 <span class="sd">        dois = [&quot;10.3897/zookeys.634.9262&quot;, &quot;10.3897/zookeys.634.10207&quot;, &quot;10.3897/zookeys.634.9917&quot;]</span>
-<span class="sd">        x = miner.search(ids = dois)</span>
+<span class="sd">        x = m.search(ids = dois)</span>
 <span class="sd">        x</span>
 <span class="sd">        x.links()</span>
 <span class="sd">        x.links_verbose()</span>
@@ -217,17 +252,18 @@
 <span class="sd">        out[0].parse()</span>
 <span class="sd">        </span>
 <span class="sd">        # filters</span>
-<span class="sd">        miner.search(filter = {</span>
+<span class="sd">        m.search(filter = {</span>
 <span class="sd">          &#39;full_text_type&#39;: &#39;text/plain&#39;, </span>
 <span class="sd">          &#39;license_url&#39;: &quot;http://creativecommons.org/licenses/by-nc-nd/3.0&quot;})</span>
-<span class="sd">        miner.search(filter = {</span>
+<span class="sd">        m.search(filter = {</span>
 <span class="sd">          &#39;has_full_text&#39;: True, </span>
 <span class="sd">          &#39;license_url&#39;: &quot;http://creativecommons.org/licenses/by/4.0&quot;})</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="n">cr</span> <span class="o">=</span> <span class="n">Crossref</span><span class="p">()</span>
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">Crossref</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">limit</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">cr</span><span class="o">.</span><span class="n">works</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">works</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Mined</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

@@ -1,12 +1,12 @@
 import requests
-from .miner_utils import *
+from .fetcher_utils import *
 from .crutils import *
-from .mined import Mined
+from .fetched import Fetched
 
-class Miner(object):
-  """docstring for Miner"""
+class Fetcher(object):
+  """docstring for Fetcher"""
   def __init__(self, url):
-    super(Miner, self).__init__()
+    super(Fetcher, self).__init__()
     self.url = url
 
   def perform(self):
@@ -22,4 +22,4 @@ class Miner(object):
     path = make_path(r, type)
     write_disk(r, path)
 
-    return Mined(self.url, path, type)
+    return Fetched(self.url, path, type)

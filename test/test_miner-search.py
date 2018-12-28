@@ -2,13 +2,14 @@
 import os
 import pytest
 import vcr
-from pyminer import miner
+from pyminer import Miner
+m = Miner()
 
 @vcr.use_cassette('test/vcr_cassettes/search.yaml')
 def test_search():
     "miner.search - basic test"
-    res = miner.search(filter = {'has_full_text': True}, limit = 5)
-    assert 'Response' == res.__class__.__name__
+    res = m.search(filter = {'has_full_text': True}, limit = 5)
+    assert 'Mined' == res.__class__.__name__
     assert list == res.items.__class__
     assert dict == res.result.__class__
     assert 'method' == res.links.__class__.__name__
@@ -16,8 +17,8 @@ def test_search():
 @vcr.use_cassette('test/vcr_cassettes/search_limit.yaml')
 def test_search_limit():
     "miner.search - limit"
-    res = miner.search(filter = {'has_full_text': True}, limit = 1)
-    assert 'Response' == res.__class__.__name__
+    res = m.search(filter = {'has_full_text': True}, limit = 1)
+    assert 'Mined' == res.__class__.__name__
     assert 1 == len(res.items)
 
 # def test_search_filter():

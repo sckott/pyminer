@@ -1,4 +1,4 @@
-from .search import search
+from .miner import Miner
 
 def links(ids, **kwargs):
     '''
@@ -12,13 +12,11 @@ def links(ids, **kwargs):
 
     Usage::
 
-        from pyminer import miner
-        x = miner.links(ids = '10.1371/journal.pone.0033693')
-        x
-
-        x = miner.links(ids = '10.3897/rio.2.e10445')
-        x
+        from pyminer import links
+        links(ids = '10.1371/journal.pone.0033693')
+        links(ids = '10.3897/rio.2.e10445')
     '''
-    res = search(ids = ids, **kwargs)
+    m = Miner()
+    res = m.search(ids = ids, **kwargs)
     res = res.links_verbose()
     return res

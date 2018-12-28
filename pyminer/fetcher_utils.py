@@ -1,7 +1,7 @@
 import re
 import os
 import hashlib
-from .miner import extract
+from .extract import extract
 from lxml import etree
 from appdirs import user_cache_dir
 

@@ -10,7 +10,7 @@ interactions:
     method: GET
     uri: https://api.crossref.org/works?filter=has-full-text%3Atrue&rows=5
   response:
-    body: {string: '{"status":"ok","message-type":"work-list","message-version":"1.0.0","message":{"facets":{},"total-results":71397604,"items":[{"indexed":{"date-parts":[[2018,4,13]],"date-time":"2018-04-13T01:38:52Z","timestamp":1523583532754},"reference-count":0,"publisher":"Informa
+    body: {string: '{"status":"ok","message-type":"work-list","message-version":"1.0.0","message":{"facets":{},"total-results":71490980,"items":[{"indexed":{"date-parts":[[2018,4,13]],"date-time":"2018-04-13T01:38:52Z","timestamp":1523583532754},"reference-count":0,"publisher":"Informa
         UK Limited","issue":"12","content-domain":{"domain":[],"crossmark-restriction":false},"short-container-title":["Geologiska
         F\u00f6reningen i Stockholm F\u00f6rhandlingar"],"published-print":{"date-parts":[[1875,5,5]]},"DOI":"10.1080\/11035897509448098","type":"journal-article","created":{"date-parts":[[2010,1,7]],"date-time":"2010-01-07T20:03:24Z","timestamp":1262894604000},"page":"501-506","source":"Crossref","is-referenced-by-count":0,"title":["Geologiska
         notiser fr\u00e5n en resa i Norra Ryssland, sommaren 1874"],"prefix":"10.1080","volume":"2","author":[{"given":"Gust","family":"Nauckhoff","sequence":"first","affiliation":[]}],"member":"301","published-online":{"date-parts":[[2010,1,6]]},"container-title":["Geologiska
@@ -39,7 +39,7 @@ interactions:
       Connection: [close]
       Content-Length: ['8098']
       Content-Type: [application/json;charset=UTF-8]
-      Date: ['Fri, 21 Dec 2018 03:30:35 GMT']
+      Date: ['Fri, 28 Dec 2018 20:39:42 GMT']
       Server: [http-kit]
       Vary: [Accept]
       X-Rate-Limit-Interval: [1s]

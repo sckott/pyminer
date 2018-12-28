@@ -5,8 +5,8 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.21.0 pyminer/0.0.5.9000]
-      X-USER-AGENT: [python-requests/2.21.0 pyminer/0.0.5.9000]
+      User-Agent: [python-requests/2.21.0 pyminer/0.0.6.9000]
+      X-USER-AGENT: [python-requests/2.21.0 pyminer/0.0.6.9000]
     method: GET
     uri: http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126
   response:
@@ -33,7 +33,7 @@ interactions:
       Connection: [Keep-Alive]
       Content-Length: ['363']
       Content-Type: [text/html; charset=iso-8859-1]
-      Date: ['Fri, 21 Dec 2018 04:06:52 GMT']
+      Date: ['Fri, 28 Dec 2018 20:39:36 GMT']
       Keep-Alive: ['timeout=5, max=100']
       Location: ['https://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126']
       Server: [Apache/2.4.29 (Ubuntu)]
@@ -44,8 +44,8 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      User-Agent: [python-requests/2.21.0 pyminer/0.0.5.9000]
-      X-USER-AGENT: [python-requests/2.21.0 pyminer/0.0.5.9000]
+      User-Agent: [python-requests/2.21.0 pyminer/0.0.6.9000]
+      X-USER-AGENT: [python-requests/2.21.0 pyminer/0.0.6.9000]
     method: GET
     uri: https://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126
   response:
@@ -54,11 +54,11 @@ interactions:
       Connection: [Keep-Alive]
       Content-Length: ['0']
       Content-Type: [text/html; charset=UTF-8]
-      Date: ['Fri, 21 Dec 2018 04:06:53 GMT']
+      Date: ['Fri, 28 Dec 2018 20:39:36 GMT']
       Keep-Alive: ['timeout=5, max=100']
       Location: ['https://www.banglajol.info/index.php/AJMBR/article/download/25509/17126/0']
       Server: [Apache/2.4.29 (Ubuntu)]
-      Set-Cookie: [OJSSID=eojfqu9sd6efrujfc8u88ar9eq; path=/; domain=www.banglajol.info]
+      Set-Cookie: [OJSSID=0pldt34m7kksotdei3b6b5dbdq; path=/; domain=www.banglajol.info]
     status: {code: 301, message: Moved Permanently}
 - request:
     body: null
@@ -66,9 +66,9 @@ interactions:
       Accept: ['*/*']
       Accept-Encoding: ['gzip, deflate']
       Connection: [keep-alive]
-      Cookie: [OJSSID=eojfqu9sd6efrujfc8u88ar9eq]
-      User-Agent: [python-requests/2.21.0 pyminer/0.0.5.9000]
-      X-USER-AGENT: [python-requests/2.21.0 pyminer/0.0.5.9000]
+      Cookie: [OJSSID=0pldt34m7kksotdei3b6b5dbdq]
+      User-Agent: [python-requests/2.21.0 pyminer/0.0.6.9000]
+      X-USER-AGENT: [python-requests/2.21.0 pyminer/0.0.6.9000]
     method: GET
     uri: https://www.banglajol.info/index.php/AJMBR/article/download/25509/17126/0
   response:
@@ -7920,7 +7920,7 @@ interactions:
       Content-Disposition: [attachment; filename="25509-Article Text-91712-1-10-20151027.pdf"]
       Content-Length: ['446816']
       Content-Type: [application/pdf]
-      Date: ['Fri, 21 Dec 2018 04:06:53 GMT']
+      Date: ['Fri, 28 Dec 2018 20:39:37 GMT']
       Keep-Alive: ['timeout=5, max=99']
       Pragma: [public]
       Server: [Apache/2.4.29 (Ubuntu)]

@@ -3,7 +3,7 @@ import pdftotext
 
 def extract(path):
     '''
-    Extract full text fro pdf's
+    Extract full text from pdf's
 
     :param path: [String] Path to a pdf file downloaded via {fetch}, or another way.
 

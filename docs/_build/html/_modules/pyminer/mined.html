@@ -1,0 +1,397 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyminer.mined &mdash; pyminer 0.0.6.9000 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pyminer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.6.9000
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Miner.html">pyminer: Miner class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Mined.html">pyminer: Mined class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsers.html">parsers module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog_link.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyminer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyminer.mined</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyminer.mined</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.crutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.fetch</span> <span class="k">import</span> <span class="n">fetch</span>
+
+<div class="viewcode-block" id="Mined"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined">[docs]</a><span class="k">class</span> <span class="nc">Mined</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  Mined: response class for mining Crossref articles</span>
+<span class="sd">  </span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+
+<span class="sd">  **Mined Methods**</span>
+
+<span class="sd">  * links - :func:`~pyminer.Mined.links`</span>
+<span class="sd">  * links_pdf - :func:`~pyminer.Mined.links_pdf`</span>
+<span class="sd">  * links_xml - :func:`~pyminer.Mined.links_xml`</span>
+<span class="sd">  * links_plain - :func:`~pyminer.Mined.links_plain`</span>
+<span class="sd">  * links_unspecified - :func:`~pyminer.Mined.links_unspecified`</span>
+<span class="sd">  * links_verbose - :func:`~pyminer.Mined.links_verbose`</span>
+<span class="sd">  * fetch - :func:`~pyminer.Mined.fetch`</span>
+<span class="sd">  * extract - :func:`~pyminer.Mined.extract`</span>
+<span class="sd">  </span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">tdm_key</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="n">tdm_key</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">no_results</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;message-type&quot;</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;message-type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;work-list&quot;</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">]</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">no_results</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+      <span class="bp">self</span><span class="o">.</span><span class="n">no_results</span> <span class="o">=</span> <span class="mi">1</span>
+
+  <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;&lt;pyminer search:&gt; </span><span class="se">\n</span><span class="s1">  results: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_results</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Mined.links"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.links">[docs]</a>  <span class="k">def</span> <span class="nf">links</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get all links</span>
+
+<span class="sd">    :return: list with links; empty list if no results</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.1371/journal.pone.0033693&#39;)</span>
+<span class="sd">        x.links()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__prep_links</span><span class="p">()</span>
+    <span class="n">ff</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">[</span> <span class="n">z</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;link&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">items</span> <span class="p">]))</span>
+    <span class="k">return</span> <span class="p">[</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;URL&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ff</span> <span class="p">]</span></div>
+
+<div class="viewcode-block" id="Mined.links_pdf"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.links_pdf">[docs]</a>  <span class="k">def</span> <span class="nf">links_pdf</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get links with content-type of &quot;application/pdf&quot;</span>
+
+<span class="sd">    :return: list with pdf links; empty list if no results</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        x.links_pdf()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__match_type</span><span class="p">(</span><span class="s2">&quot;application/pdf&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mined.links_xml"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.links_xml">[docs]</a>  <span class="k">def</span> <span class="nf">links_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get links with content-type of &quot;text/xml&quot;</span>
+
+<span class="sd">    :return: list with xml links; empty list if no results</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        x.links_xml()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__match_type</span><span class="p">(</span><span class="s2">&quot;text/xml&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mined.links_plain"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.links_plain">[docs]</a>  <span class="k">def</span> <span class="nf">links_plain</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get links with content-type of &quot;text/plain&quot;</span>
+
+<span class="sd">    :return: list with plain text links; empty list if no results</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        x.links_plain()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__match_type</span><span class="p">(</span><span class="s2">&quot;text/plain&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mined.links_unspecified"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.links_unspecified">[docs]</a>  <span class="k">def</span> <span class="nf">links_unspecified</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get links that have content-type as &quot;unspecified&quot;</span>
+
+<span class="sd">    :return: list with links; empty list if no results</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        x.links_plain()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__match_type</span><span class="p">(</span><span class="s2">&quot;unspecified&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Mined.links_verbose"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.links_verbose">[docs]</a>  <span class="k">def</span> <span class="nf">links_verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Get all link metadata</span>
+
+<span class="sd">    :return: list of dicts; empty list if no results</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        x.links_verbose()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__prep_links</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span> <span class="n">z</span><span class="p">[</span><span class="s1">&#39;link&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">items</span> <span class="p">]</span></div>
+
+<div class="viewcode-block" id="Mined.fetch"><a class="viewcode-back" href="../../Mined.html#pyminer.Mined.fetch">[docs]</a>  <span class="k">def</span> <span class="nf">fetch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Fetch articles</span>
+
+<span class="sd">    :return: list of objects of class Fetched</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        out = x.fetch()</span>
+<span class="sd">        out</span>
+<span class="sd">        out[0].url</span>
+<span class="sd">        out[0].path</span>
+<span class="sd">        out[0].type</span>
+<span class="sd">        out[0].parse()</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">lks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">links</span><span class="p">()</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lks</span><span class="p">:</span>
+      <span class="n">res</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+      <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+
+
+  <span class="c1"># internal methods</span>
+  <span class="k">def</span> <span class="nf">__prep_links</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">&quot;work&quot;</span><span class="p">:</span>
+      <span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">items</span>
+    <span class="k">return</span> <span class="n">items</span>
+
+  <span class="k">def</span> <span class="nf">__match_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__prep_links</span><span class="p">()</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="n">index_safe</span><span class="p">(</span><span class="n">compact</span><span class="p">(</span>
+        <span class="p">[</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;URL&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;content-type&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">type</span> <span class="k">else</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">z</span><span class="p">[</span><span class="s1">&#39;link&#39;</span><span class="p">]</span> <span class="p">]</span>
+      <span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">items</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">compact</span><span class="p">(</span><span class="n">out</span><span class="p">)</span></div>
+
+
+<span class="c1"># helper methods</span>
+<span class="k">def</span> <span class="nf">compact</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">z</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">index_safe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+  <span class="k">try</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+  <span class="k">except</span><span class="p">:</span>
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Scott Chamberlain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.6.9000',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

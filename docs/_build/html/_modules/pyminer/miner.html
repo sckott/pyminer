@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyminer.miner &mdash; pyminer 0.0.6.9000 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pyminer
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.6.9000
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Miner.html">pyminer: Miner class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Mined.html">pyminer: Mined class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../parsers.html">parsers module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog_link.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pyminer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>pyminer.miner</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for pyminer.miner</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.crutils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">.mined</span> <span class="k">import</span> <span class="n">Mined</span>
+<span class="kn">from</span> <span class="nn">habanero</span> <span class="k">import</span> <span class="n">Crossref</span>
+
+<div class="viewcode-block" id="Miner"><a class="viewcode-back" href="../../Miner.html#pyminer.Miner">[docs]</a><span class="k">class</span> <span class="nc">Miner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  Miner: Class for mining Crossref articles</span>
+<span class="sd">  </span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+
+<span class="sd">  **Miner Methods**</span>
+
+<span class="sd">  * search - :func:`~pyminer.Miner.search`</span>
+
+<span class="sd">  **Setup**::</span>
+
+<span class="sd">    from pyminer import Miner</span>
+<span class="sd">    m = Miner()</span>
+<span class="sd">    # set your Crossref TDM key</span>
+<span class="sd">    Miner(tdm_key = &quot;123456&quot;)</span>
+<span class="sd">    # set a mailto address</span>
+<span class="sd">    Miner(mailto = &quot;foo@bar.com&quot;)</span>
+<span class="sd">  </span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+<span class="sd">  |</span>
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tdm_key</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mailto</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="n">tdm_key</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">mailto</span>
+
+  <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;&quot;&lt; </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">tdm_key: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">mailto: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&gt;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+        <span class="n">sub_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Miner.search"><a class="viewcode-back" href="../../Miner.html#pyminer.Miner.search">[docs]</a>  <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Search Crossref to get text mining links</span>
+
+<span class="sd">    :param ids: [Array] DOIs (digital object identifier) or other identifiers</span>
+<span class="sd">    :param member: [String] member ids</span>
+<span class="sd">    :param filter: [Hash] Filter options. See ...</span>
+<span class="sd">    :param limit: [Fixnum] Number of results to return. Not relavant when</span>
+<span class="sd">        searching with specific dois. Default: 20. Max: 1000</span>
+<span class="sd">    :param kwargs: any additional arguments will be passed on to</span>
+<span class="sd">        ``requests.get``</span>
+
+<span class="sd">    :return: object of class :class:`~pyminer.Mined`</span>
+
+<span class="sd">    Usage::</span>
+
+<span class="sd">        # search for many</span>
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(filter = {&#39;has_full_text&#39;: True}, limit = 5)</span>
+<span class="sd">        x</span>
+<span class="sd">        x.items</span>
+<span class="sd">        x.links()</span>
+<span class="sd">        x.links_verbose()</span>
+<span class="sd">        x.links_unspecified()</span>
+<span class="sd">        x.result</span>
+<span class="sd">        x.fetch()</span>
+
+<span class="sd">        # get by DOI</span>
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.1371/journal.pone.0033693&#39;)</span>
+<span class="sd">        x</span>
+<span class="sd">        x.items</span>
+<span class="sd">        x.items.keys()</span>
+<span class="sd">        x.links()</span>
+<span class="sd">        x.links_verbose()</span>
+<span class="sd">        x.fetch()</span>
+
+<span class="sd">        from pyminer import Miner</span>
+<span class="sd">        m = Miner()</span>
+<span class="sd">        x = m.search(ids = &#39;10.3897/rio.2.e10445&#39;)</span>
+<span class="sd">        x</span>
+<span class="sd">        x.links()</span>
+<span class="sd">        x.links_verbose()</span>
+<span class="sd">        out = x.fetch()</span>
+<span class="sd">        out</span>
+<span class="sd">        out[0].url</span>
+<span class="sd">        out[0].path</span>
+<span class="sd">        out[0].type</span>
+<span class="sd">        out[0].parse()</span>
+
+<span class="sd">        ## many at once</span>
+<span class="sd">        dois = [&quot;10.3897/zookeys.634.9262&quot;, &quot;10.3897/zookeys.634.10207&quot;, &quot;10.3897/zookeys.634.9917&quot;]</span>
+<span class="sd">        x = m.search(ids = dois)</span>
+<span class="sd">        x</span>
+<span class="sd">        x.links()</span>
+<span class="sd">        x.links_verbose()</span>
+<span class="sd">        out = x.fetch()</span>
+<span class="sd">        out</span>
+<span class="sd">        out[0].url</span>
+<span class="sd">        out[0].path</span>
+<span class="sd">        out[0].type</span>
+<span class="sd">        out[0].parse()</span>
+<span class="sd">        </span>
+<span class="sd">        # filters</span>
+<span class="sd">        m.search(filter = {</span>
+<span class="sd">          &#39;full_text_type&#39;: &#39;text/plain&#39;, </span>
+<span class="sd">          &#39;license_url&#39;: &quot;http://creativecommons.org/licenses/by-nc-nd/3.0&quot;})</span>
+<span class="sd">        m.search(filter = {</span>
+<span class="sd">          &#39;has_full_text&#39;: True, </span>
+<span class="sd">          &#39;license_url&#39;: &quot;http://creativecommons.org/licenses/by/4.0&quot;})</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">Crossref</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">limit</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">cr</span><span class="o">.</span><span class="n">works</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span><span class="p">,</span> <span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Mined</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Scott Chamberlain.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.0.6.9000',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
