@@ -17,17 +17,17 @@ class Miner(object):
 
     from pyminer import Miner
     m = Miner()
-    # set your Crossref TDM key
-    Miner(tdm_key = "123456")
     # set a mailto address
     Miner(mailto = "foo@bar.com")
+    # set your Crossref TDM key
+    Miner(tdmkey = "123456")
   
   |
   |
   |
   '''
-  def __init__(self, tdm_key = None, mailto = None):
-    self.tdm_key = tdm_key
+  def __init__(self, mailto = None, tdmkey = None):
+    self.tdm_key = tdmkey
     self.mailto = mailto
 
   def __repr__(self):

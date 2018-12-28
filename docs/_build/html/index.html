@@ -176,20 +176,42 @@
 </div>
 <div class="section" id="search">
 <h1>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h1>
+<p>Strongly recommend for search using your email in the mailto parameter in the
+Miner() call to get in the “fast lane”.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">Miner</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;crossref_email&#39;</span><span class="p">])</span>
 <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="fetch">
 <h1>Fetch<a class="headerlink" href="#fetch" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">fetch</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">out</span><span class="o">.</span><span class="n">url</span>
-<span class="n">out</span><span class="o">.</span><span class="n">path</span>
-<span class="n">out</span><span class="o">.</span><span class="n">type</span>
-<span class="n">out</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+<p>If you have a Crossref Text and Data Mining key/token, you can give it in the
+tdmkey parameter in the Miner() call</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># a Pensoft article</span>
+<span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">Miner</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;crossref_email&#39;</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s1">&#39;10.3897/rio.2.e10445&#39;</span><span class="p">)</span>
+<span class="n">x</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
+<span class="n">out</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">path</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="c1"># an Elsevier article - BEWARE, they check IP addresses, so your IP address</span>
+<span class="c1"># must be at a member institution or similar</span>
+<span class="kn">from</span> <span class="nn">pyminer</span> <span class="kn">import</span> <span class="n">Miner</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;crossref_email&#39;</span><span class="p">],</span> <span class="n">tdmkey</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CROSSREF_TDM&#39;</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s2">&quot;10.1016/j.funeco.2010.11.003&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+<span class="n">out</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">path</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

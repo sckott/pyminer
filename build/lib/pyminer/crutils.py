@@ -38,4 +38,4 @@ def sub_str(x, n = 3):
     pass
   else:
     return str(x[:n]) + '***'
-    
+  

@@ -34,24 +34,48 @@ Development version
 Search
 ======
 
+Strongly recommend for search using your email in the mailto parameter in the 
+Miner() call to get in the "fast lane".
+
 .. code-block:: python
 
     from pyminer import Miner
+    import os
+    m = Miner(mailto = os.environ['crossref_email'])
     m.search(filter = {'has_full_text': True}, limit = 5)
 
 
 Fetch
 =====
 
+If you have a Crossref Text and Data Mining key/token, you can give it in the 
+tdmkey parameter in the Miner() call
+
 .. code-block:: python
 
-    from pyminer import fetch
-    url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
-    out = fetch(url)
-    out.url
-    out.path
-    out.type
-    out.parse()
+    # a Pensoft article
+    from pyminer import Miner
+    import os
+    m = Miner(mailto = os.environ['crossref_email'])
+    x = m.search(ids = '10.3897/rio.2.e10445')
+    x
+    out = x.fetch(type = "pdf")
+    out
+    out[0].url
+    out[0].path
+    out[0].type
+    out[0].parse()
+
+    # an Elsevier article - BEWARE, they check IP addresses, so your IP address 
+    # must be at a member institution or similar
+    from pyminer import Miner
+    import os
+    m = Miner(mailto = os.environ['crossref_email'], tdmkey = os.environ['CROSSREF_TDM'])
+    x = m.search(ids = "10.1016/j.funeco.2010.11.003")
+    out = x.fetch(type = "xml")
+    out
+    out[0].path
+    out[0].parse()
 
 
 Extract

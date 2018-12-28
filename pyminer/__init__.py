@@ -32,6 +32,17 @@ Usage::
 	url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
     out = fetch(url)
     out.parse()
+
+    # verbose curl output
+    import requests
+    import logging
+    import http.client
+    http.client.HTTPConnection.debuglevel = 1
+    logging.basicConfig()
+    logging.getLogger().setLevel(logging.DEBUG)
+    requests_log = logging.getLogger("requests.packages.urllib3")
+    requests_log.propagate = True
+    
 '''
 
 __version__ = '0.0.6.9000'

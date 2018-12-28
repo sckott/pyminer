@@ -5,13 +5,16 @@ from .fetched import Fetched
 
 class Fetcher(object):
   """docstring for Fetcher"""
-  def __init__(self, url):
+  def __init__(self, url, headers = {}):
     super(Fetcher, self).__init__()
     self.url = url
+    self.headers = headers
 
   def perform(self):
     try:
-      r = requests.get(self.url, headers = make_ua())
+      ua = make_ua()
+      ua.update(self.headers)
+      r = requests.get(self.url, headers = ua)
       r.raise_for_status()
     except requests.exceptions.HTTPError:
       r.raise_for_status()

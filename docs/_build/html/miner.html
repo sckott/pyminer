@@ -155,7 +155,7 @@
 <span id="miner-class"></span><h1>pyminer: Miner class<a class="headerlink" href="#pyminer-miner-class" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="pyminer.Miner">
-<em class="property">class </em><code class="descclassname">pyminer.</code><code class="descname">Miner</code><span class="sig-paren">(</span><em>tdm_key=None</em>, <em>mailto=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyminer/miner.html#Miner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyminer.Miner" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">pyminer.</code><code class="descname">Miner</code><span class="sig-paren">(</span><em>mailto=None</em>, <em>tdmkey=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyminer/miner.html#Miner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyminer.Miner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Miner: Class for mining Crossref articles</p>
 <div class="line-block">
 <div class="line"><br /></div>
@@ -168,12 +168,52 @@
 <p><strong>Setup</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">()</span>
-<span class="c1"># set your Crossref TDM key</span>
-<span class="n">Miner</span><span class="p">(</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="s2">&quot;123456&quot;</span><span class="p">)</span>
 <span class="c1"># set a mailto address</span>
 <span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="s2">&quot;foo@bar.com&quot;</span><span class="p">)</span>
+<span class="c1"># set your Crossref TDM key</span>
+<span class="n">Miner</span><span class="p">(</span><span class="n">tdmkey</span> <span class="o">=</span> <span class="s2">&quot;123456&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>Authentication</strong></p>
+<blockquote>
+<div><p>Authentication is applicable only when the publisher you want to get
+fulltext from requires it. OA publishers shouldn’t need it as you’d
+expect, and there’s some papers from typically closed publishers
+that are open (a good way to check this is the license on the paper [
+see <cite>rcrossref</cite>]). There’s many publishers that don’t share links at all,
+so they are irrelevant here.</p>
+<p>For publishers that required authentication, the Crossref TDM
+program allows for a single token to authenticate across publishers
+(to make it easier for text miners). The publishers involved with the
+authentication scheme are really only Elsevier and Wiley - these two
+publishers make up a lot of the papers out there and a lot of the
+links on the Crossref API.</p>
+<p>There’s a how to guide for Crossref TDM at
+&lt;<a class="reference external" href="http://tdmsupport.crossref.org/researchers/">http://tdmsupport.crossref.org/researchers/</a>&gt;.
+Get your Crossref TDM token by registering at
+&lt;<a class="reference external" href="https://apps.crossref.org/clickthrough/researchers">https://apps.crossref.org/clickthrough/researchers</a>&gt;</p>
+</div></blockquote>
+<p><strong>IP addresses</strong></p>
+<blockquote>
+<div><p>If you don’t know what IP addresses are, check out
+&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/IP_address">https://en.wikipedia.org/wiki/IP_address</a>&gt;. At least Elsevier and
+I think Wiley also check your IP address in addition to requiring the
+authentication token. Usually your’re good if you’re physically at the
+institution that has access to the publishers content OR on a VPN
+(i.e., pretending you’re there).</p>
+<p>If you forget about this, you’ll get errors about not being authorized.
+So check and make sure you’re on a VPN if you’re not physically
+located at your institution.</p>
+</div></blockquote>
+<p><strong>Fences</strong></p>
+<blockquote>
+<div>There’s yet another issue to worry about. At least with Elsevier, they
+have a so-called “fence” - that is, even if an institution has access
+to Elsevier content, Elsevier doesn’t necessarily have the fence
+turned off - if its not off, you can’t get through - if it’s off, you can.
+If you have the right token and you are sure you’re on the right
+IP address, this could be the problem for your lack of access. If that happens
+get in touch with me at &lt;<a class="reference external" href="mailto:scott&#37;&#52;&#48;ropensci&#46;org">mailto:scott<span>&#64;</span>ropensci<span>&#46;</span>org</a>&gt; and i’ll try to sort it out.</div></blockquote>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
