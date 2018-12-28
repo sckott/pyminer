@@ -179,25 +179,44 @@
 </div>
 <dl class="method">
 <dt id="pyminer.Mined.fetch">
-<code class="descname">fetch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyminer/mined.html#Mined.fetch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyminer.Mined.fetch" title="Permalink to this definition">¶</a></dt>
+<code class="descname">fetch</code><span class="sig-paren">(</span><em>type='xml'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyminer/mined.html#Mined.fetch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyminer.Mined.fetch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch articles</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of objects of class Fetched</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> – [String] one of pdf, xml, plain, html, unspecified</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of objects of class Fetched</td>
 </tr>
 </tbody>
 </table>
 <p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;crossref_email&#39;</span><span class="p">])</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s1">&#39;10.3897/rio.2.e10445&#39;</span><span class="p">)</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">()</span>
+<span class="n">x</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
 <span class="n">out</span>
 <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">url</span>
 <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">path</span>
 <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">type</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;crossref_email&#39;</span><span class="p">],</span> <span class="n">tdmkey</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CROSSREF_TDM&#39;</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s2">&quot;10.1016/j.funeco.2010.11.003&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+<span class="n">out</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">path</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s2">&quot;10.1111/apt.13556&quot;</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;unspecified&quot;</span><span class="p">)</span>
+<span class="n">out</span>
+<span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">path</span>
 <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 </pre></div>
 </div>

@@ -167,17 +167,62 @@
 
 <span class="sd">    from pyminer import Miner</span>
 <span class="sd">    m = Miner()</span>
-<span class="sd">    # set your Crossref TDM key</span>
-<span class="sd">    Miner(tdm_key = &quot;123456&quot;)</span>
 <span class="sd">    # set a mailto address</span>
 <span class="sd">    Miner(mailto = &quot;foo@bar.com&quot;)</span>
+<span class="sd">    # set your Crossref TDM key</span>
+<span class="sd">    Miner(tdmkey = &quot;123456&quot;)</span>
+
+<span class="sd">  **Authentication**</span>
+
+<span class="sd">    Authentication is applicable only when the publisher you want to get</span>
+<span class="sd">    fulltext from requires it. OA publishers shouldn&#39;t need it as you&#39;d</span>
+<span class="sd">    expect, and there&#39;s some papers from typically closed publishers</span>
+<span class="sd">    that are open (a good way to check this is the license on the paper [</span>
+<span class="sd">    see `rcrossref`]). There&#39;s many publishers that don&#39;t share links at all,</span>
+<span class="sd">    so they are irrelevant here.</span>
+
+<span class="sd">    For publishers that required authentication, the Crossref TDM</span>
+<span class="sd">    program allows for a single token to authenticate across publishers</span>
+<span class="sd">    (to make it easier for text miners). The publishers involved with the</span>
+<span class="sd">    authentication scheme are really only Elsevier and Wiley - these two</span>
+<span class="sd">    publishers make up a lot of the papers out there and a lot of the</span>
+<span class="sd">    links on the Crossref API.</span>
+
+<span class="sd">    There&#39;s a how to guide for Crossref TDM at</span>
+<span class="sd">    &lt;http://tdmsupport.crossref.org/researchers/&gt;.</span>
+<span class="sd">    Get your Crossref TDM token by registering at</span>
+<span class="sd">    &lt;https://apps.crossref.org/clickthrough/researchers&gt;</span>
+
+<span class="sd">  **IP addresses**</span>
+
+<span class="sd">    If you don&#39;t know what IP addresses are, check out</span>
+<span class="sd">    &lt;https://en.wikipedia.org/wiki/IP_address&gt;. At least Elsevier and</span>
+<span class="sd">    I think Wiley also check your IP address in addition to requiring the</span>
+<span class="sd">    authentication token. Usually your&#39;re good if you&#39;re physically at the</span>
+<span class="sd">    institution that has access to the publishers content OR on a VPN</span>
+<span class="sd">    (i.e., pretending you&#39;re there).</span>
+
+<span class="sd">    If you forget about this, you&#39;ll get errors about not being authorized.</span>
+<span class="sd">    So check and make sure you&#39;re on a VPN if you&#39;re not physically</span>
+<span class="sd">    located at your institution.</span>
+
+<span class="sd">  **Fences**</span>
+
+<span class="sd">    There&#39;s yet another issue to worry about. At least with Elsevier, they</span>
+<span class="sd">    have a so-called &quot;fence&quot; - that is, even if an institution has access</span>
+<span class="sd">    to Elsevier content, Elsevier doesn&#39;t necessarily have the fence</span>
+<span class="sd">    turned off - if its not off, you can&#39;t get through - if it&#39;s off, you can.</span>
+<span class="sd">    If you have the right token and you are sure you&#39;re on the right</span>
+<span class="sd">    IP address, this could be the problem for your lack of access. If that happens</span>
+<span class="sd">    get in touch with me at &lt;mailto:scott@ropensci.org&gt; and i&#39;ll try to sort it out.</span>
+
 <span class="sd">  </span>
 <span class="sd">  |</span>
 <span class="sd">  |</span>
 <span class="sd">  |</span>
 <span class="sd">  &#39;&#39;&#39;</span>
-  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tdm_key</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mailto</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="n">tdm_key</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mailto</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tdmkey</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="n">tdmkey</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span> <span class="o">=</span> <span class="n">mailto</span>
 
   <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
