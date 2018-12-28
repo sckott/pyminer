@@ -1,10 +1,9 @@
-.. _miner:
+.. _Miner-class:
 
-miner module
-============
+====================
+pyminer: Miner class
+====================
 
-.. py:module:: pyminer
+.. autoclass:: pyminer.Miner
+   :members: search
 
-.. automethod:: miner.search
-.. automethod:: miner.fetch
-.. automethod:: miner.extract

@@ -36,8 +36,8 @@ Search
 
 .. code-block:: python
 
-    from pyminer import miner
-    miner.search(filter = {'has_full_text': True}, limit = 5)
+    from pyminer import Miner
+    m.search(filter = {'has_full_text': True}, limit = 5)
 
 
 Fetch
@@ -45,9 +45,9 @@ Fetch
 
 .. code-block:: python
 
-    from pyminer import miner
+    from pyminer import fetch
     url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
-    out = miner.fetch(url)
+    out = fetch(url)
     out.url
     out.path
     out.type
@@ -59,10 +59,10 @@ Extract
 
 .. code-block:: python
 
-    from pyminer import miner
+    from pyminer import fetch, extract
     url = 'http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928'
-    x = miner.fetch(url)
-    miner.extract(x.path)
+    x = fetch(url)
+    extract(x.path)
 
 Meta
 ====

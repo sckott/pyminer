@@ -32,3 +32,10 @@ def check_json(x):
     if str(x.text) == "Not implemented.":
       scode = 400
     raise RequestError(scode, str(x.text))
+
+def sub_str(x, n = 3):
+  if(x.__class__.__name__ == 'NoneType'):
+    pass
+  else:
+    return str(x[:n]) + '***'
+    

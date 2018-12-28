@@ -1,4 +1,4 @@
-from ..crutils import *
+from .crutils import *
 import pdftotext
 
 def extract(path):

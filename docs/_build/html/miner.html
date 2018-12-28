@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>miner module &mdash; pyminer 0.0.5.9000 documentation</title>
+  <title>pyminer: Miner class &mdash; pyminer 0.0.6.9000 documentation</title>
   
 
   
@@ -28,7 +28,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="parsers module" href="parsers.html" />
+    <link rel="next" title="pyminer: Mined class" href="Mined.html" />
     <link rel="prev" title="pyminer" href="index.html" /> 
 
   
@@ -58,7 +58,7 @@
             
             
               <div class="version">
-                0.0.5.9000
+                0.0.6.9000
               </div>
             
           
@@ -83,7 +83,8 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">miner module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyminer: Miner class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mined.html">pyminer: Mined class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parsers.html">parsers module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog_link.html">Changelog</a></li>
 </ul>
@@ -131,13 +132,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>miner module</li>
+      <li>pyminer: Miner class</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/miner.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/Miner.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -150,11 +151,37 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-pyminer">
-<span id="miner-module"></span><span id="miner"></span><h1>miner module<a class="headerlink" href="#module-pyminer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pyminer-miner-class">
+<span id="miner-class"></span><h1>pyminer: Miner class<a class="headerlink" href="#pyminer-miner-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pyminer.Miner">
+<em class="property">class </em><code class="descclassname">pyminer.</code><code class="descname">Miner</code><span class="sig-paren">(</span><em>tdm_key=None</em>, <em>mailto=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyminer/miner.html#Miner"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyminer.Miner" title="Permalink to this definition">¶</a></dt>
+<dd><p>Miner: Class for mining Crossref articles</p>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+<p><strong>Miner Methods</strong></p>
+<ul class="simple">
+<li>search - <a class="reference internal" href="#pyminer.Miner.search" title="pyminer.Miner.search"><code class="xref py py-func docutils literal notranslate"><span class="pre">search()</span></code></a></li>
+</ul>
+<p><strong>Setup</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">()</span>
+<span class="c1"># set your Crossref TDM key</span>
+<span class="n">Miner</span><span class="p">(</span><span class="n">tdm_key</span> <span class="o">=</span> <span class="s2">&quot;123456&quot;</span><span class="p">)</span>
+<span class="c1"># set a mailto address</span>
+<span class="n">Miner</span><span class="p">(</span><span class="n">mailto</span> <span class="o">=</span> <span class="s2">&quot;foo@bar.com&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
 <dl class="method">
-<dt id="pyminer.miner.search">
-<code class="descclassname">miner.</code><code class="descname">search</code><span class="sig-paren">(</span><em>member=None</em>, <em>filter=None</em>, <em>limit=500</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.search" title="Permalink to this definition">¶</a></dt>
+<dt id="pyminer.Miner.search">
+<code class="descname">search</code><span class="sig-paren">(</span><em>ids=None</em>, <em>member=None</em>, <em>filter=None</em>, <em>limit=500</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyminer/miner.html#Miner.search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pyminer.Miner.search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Search Crossref to get text mining links</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -171,15 +198,16 @@ searching with specific dois. Default: 20. Max: 1000</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A dictionary, of results</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">object of class <a class="reference internal" href="Mined.html#pyminer.Mined" title="pyminer.Mined"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mined</span></code></a></p>
 </td>
 </tr>
 </tbody>
 </table>
 <p>Usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># search for many</span>
-<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span> <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">x</span>
 <span class="n">x</span><span class="o">.</span><span class="n">items</span>
 <span class="n">x</span><span class="o">.</span><span class="n">links</span><span class="p">()</span>
@@ -189,8 +217,9 @@ searching with specific dois. Default: 20. Max: 1000</li>
 <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">()</span>
 
 <span class="c1"># get by DOI</span>
-<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s1">&#39;10.1371/journal.pone.0033693&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s1">&#39;10.1371/journal.pone.0033693&#39;</span><span class="p">)</span>
 <span class="n">x</span>
 <span class="n">x</span><span class="o">.</span><span class="n">items</span>
 <span class="n">x</span><span class="o">.</span><span class="n">items</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -198,8 +227,9 @@ searching with specific dois. Default: 20. Max: 1000</li>
 <span class="n">x</span><span class="o">.</span><span class="n">links_verbose</span><span class="p">()</span>
 <span class="n">x</span><span class="o">.</span><span class="n">fetch</span><span class="p">()</span>
 
-<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s1">&#39;10.3897/rio.2.e10445&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">Miner</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Miner</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="s1">&#39;10.3897/rio.2.e10445&#39;</span><span class="p">)</span>
 <span class="n">x</span>
 <span class="n">x</span><span class="o">.</span><span class="n">links</span><span class="p">()</span>
 <span class="n">x</span><span class="o">.</span><span class="n">links_verbose</span><span class="p">()</span>
@@ -212,7 +242,7 @@ searching with specific dois. Default: 20. Max: 1000</li>
 
 <span class="c1">## many at once</span>
 <span class="n">dois</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;10.3897/zookeys.634.9262&quot;</span><span class="p">,</span> <span class="s2">&quot;10.3897/zookeys.634.10207&quot;</span><span class="p">,</span> <span class="s2">&quot;10.3897/zookeys.634.9917&quot;</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="n">dois</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ids</span> <span class="o">=</span> <span class="n">dois</span><span class="p">)</span>
 <span class="n">x</span>
 <span class="n">x</span><span class="o">.</span><span class="n">links</span><span class="p">()</span>
 <span class="n">x</span><span class="o">.</span><span class="n">links_verbose</span><span class="p">()</span>
@@ -224,99 +254,16 @@ searching with specific dois. Default: 20. Max: 1000</li>
 <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
 
 <span class="c1"># filters</span>
-<span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;full_text_type&#39;</span><span class="p">:</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">,</span> 
   <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by-nc-nd/3.0&quot;</span><span class="p">})</span>
-<span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span>
+<span class="n">m</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> 
   <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyminer.miner.fetch">
-<code class="descclassname">miner.</code><code class="descname">fetch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.fetch" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get full text</p>
-<p>Work easily for open access papers, but for closed. For non-OA papers, use
-Crossref’s Text and Data Mining service, which requires authentication and
-pre-authorized IP address. Go to <a class="reference external" href="https://apps.crossref.org/clickthrough/researchers">https://apps.crossref.org/clickthrough/researchers</a>
-to sign up for the TDM service, to get your key. The only publishers
-taking part at this time are Elsevier and Wiley.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>url</strong> – [String] A url for full text</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[Mined] An object of class Mined, with methods for extracting
-the url requested, the file path, and parsing the plain text, XML, or extracting
-text from the pdf.</td>
-</tr>
-</tbody>
-</table>
-<p>XML returns object of class lxml.etree._Element, which you can parse using
-for example lxml</p>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
-
-<span class="c1"># pdf</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">out</span><span class="o">.</span><span class="n">url</span>
-<span class="n">out</span><span class="o">.</span><span class="n">path</span>
-<span class="n">out</span><span class="o">.</span><span class="n">type</span>
-<span class="n">out</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-
-<span class="c1"># xml</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://peerj.com/articles/cs-23.xml&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">out</span><span class="o">.</span><span class="n">url</span>
-<span class="n">out</span><span class="o">.</span><span class="n">path</span>
-<span class="n">out</span><span class="o">.</span><span class="n">type</span>
-<span class="n">out</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-<span class="c1">## or drop down to individual parsing methods</span>
-<span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">parsers</span> <span class="k">as</span> <span class="n">p</span>
-<span class="n">p</span><span class="o">.</span><span class="n">parse_xml</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">parse_xml_string</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-
-<span class="c1"># search first, then pass links to fetch</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">()</span>
-<span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="method">
-<dt id="pyminer.miner.extract">
-<code class="descclassname">miner.</code><code class="descname">extract</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyminer.miner.extract" title="Permalink to this definition">¶</a></dt>
-<dd><p>Extract full text fro pdf’s</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – [String] Path to a pdf file downloaded via {fetch}, or another way.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">[str] a string of text</td>
-</tr>
-</tbody>
-</table>
-<p>Usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyminer</span> <span class="k">import</span> <span class="n">miner</span>
-
-<span class="c1"># a pdf</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126&quot;</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">out</span><span class="o">.</span><span class="n">parse</span><span class="p">()</span>
-
-<span class="c1"># search first, then pass links to fetch</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="nb">filter</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;has_full_text&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;license_url&#39;</span><span class="p">:</span> <span class="s2">&quot;http://creativecommons.org/licenses/by/4.0&quot;</span><span class="p">})</span>
-<span class="c1"># url = res.links_pdf()[0]</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.nepjol.info/index.php/JSAN/article/viewFile/13527/10928&#39;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">miner</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">miner</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </div>
@@ -329,7 +276,7 @@ for example lxml</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="parsers.html" class="btn btn-neutral float-right" title="parsers module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Mined.html" class="btn btn-neutral float-right" title="pyminer: Mined class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="pyminer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -363,7 +310,7 @@ for example lxml</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'0.0.5.9000',
+            VERSION:'0.0.6.9000',
             LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',

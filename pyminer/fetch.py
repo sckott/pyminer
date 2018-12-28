@@ -1,5 +1,5 @@
-from ..crutils import *
-from ..min_er import Miner
+from .crutils import *
+from .fetcher import Fetcher
 
 def fetch(url):
     '''
@@ -22,7 +22,7 @@ def fetch(url):
 
     Usage::
 
-        from pyminer import miner
+        from pyminer import Miner
 
         # pdf
         url = "http://www.banglajol.info/index.php/AJMBR/article/viewFile/25509/17126"
@@ -48,4 +48,4 @@ def fetch(url):
         res = miner.search()
         miner.fetch(res['url'])
     '''
-    return Miner(url).perform()
+    return Fetcher(url).perform()

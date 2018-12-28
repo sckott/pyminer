@@ -1,5 +1,4 @@
 from ..crutils import *
-from ..response import Response
 from habanero import Crossref
 
 def search(ids=None, member=None, filter=None, limit=500, **kwargs):
@@ -39,12 +38,32 @@ def search(ids=None, member=None, filter=None, limit=500, **kwargs):
         x.links_verbose()
         x.fetch()
 
+        from pyminer import miner
         x = miner.search(ids = '10.3897/rio.2.e10445')
         x
         x.links()
         x.links_verbose()
-        x.fetch()
+        out = x.fetch()
+        out
+        out[0].url
+        out[0].path
+        out[0].type
+        out[0].parse()
 
+        ## many at once
+        dois = ["10.3897/zookeys.634.9262", "10.3897/zookeys.634.10207", "10.3897/zookeys.634.9917"]
+        x = miner.search(ids = dois)
+        x
+        x.links()
+        x.links_verbose()
+        out = x.fetch()
+        out
+        out[0].url
+        out[0].path
+        out[0].type
+        out[0].parse()
+        
+        # filters
         miner.search(filter = {
           'full_text_type': 'text/plain', 
           'license_url': "http://creativecommons.org/licenses/by-nc-nd/3.0"})

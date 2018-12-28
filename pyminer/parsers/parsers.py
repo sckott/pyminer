@@ -1,4 +1,5 @@
-from ..miner_utils import *
+from ..fetcher_utils import *
+from ..extract import extract
 
 def parse_xml(x):
     '''
