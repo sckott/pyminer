@@ -81,7 +81,6 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../Miner.html">pyminer: Miner class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../Mined.html">pyminer: Mined class</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../parsers.html">parsers module</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../changelog_link.html">Changelog</a></li>
@@ -152,7 +151,7 @@
 <span class="kn">from</span> <span class="nn">.mined</span> <span class="k">import</span> <span class="n">Mined</span>
 <span class="kn">from</span> <span class="nn">habanero</span> <span class="k">import</span> <span class="n">Crossref</span>
 
-<div class="viewcode-block" id="Miner"><a class="viewcode-back" href="../../Miner.html#pyminer.Miner">[docs]</a><span class="k">class</span> <span class="nc">Miner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Miner"><a class="viewcode-back" href="../../miner.html#pyminer.Miner">[docs]</a><span class="k">class</span> <span class="nc">Miner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
   <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">  Miner: Class for mining Crossref articles</span>
 <span class="sd">  </span>
@@ -229,7 +228,7 @@
     <span class="k">return</span> <span class="s2">&quot;&quot;&quot;&lt; </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">tdm_key: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">mailto: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&gt;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
         <span class="n">sub_str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tdm_key</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mailto</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Miner.search"><a class="viewcode-back" href="../../Miner.html#pyminer.Miner.search">[docs]</a>  <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="viewcode-block" id="Miner.search"><a class="viewcode-back" href="../../miner.html#pyminer.Miner.search">[docs]</a>  <span class="k">def</span> <span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">member</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Search Crossref to get text mining links</span>
 

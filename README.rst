@@ -3,8 +3,8 @@ pyminer
 
 |pypi| |docs| |travis| |coverage|
 
-Python client for the `GBIF API
-<http://www.gbif.org/developer/summary>`__.
+Python client for text mining levaraging `Crossrefs Text and Data Mining service
+<http://tdmsupport.crossref.org/researchers>`__.
 
 `Source on GitHub at sckott/pyminer <https://github.com/sckott/pyminer>`__
 
@@ -14,6 +14,7 @@ Other Crossref text mining (and related) clients:
 * R: `crminer`, `ropensci/crminer <https://github.com/ropenscilabs/crminer>`__
 * R: `fulltext`, `ropensci/fulltext <https://github.com/ropensci/fulltext>`__
 * Ruby: `textminer`, `sckott/textminer <https://github.com/sckott/textminer>`__
+* Python: `habanero`, `sckott/habanero <https://github.com/sckott/habanero>`__
 
 Installation
 ============
