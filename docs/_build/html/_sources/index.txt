@@ -79,8 +79,8 @@ Meta
 .. |travis| image:: https://travis-ci.org/sckott/pyminer.svg
    :target: https://travis-ci.org/sckott/pyminer
 
-.. |coverage| image:: https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=master&service=github
-   :target: https://coveralls.io/github/sckott/pyminer?branch=master
+.. |coverage| image:: https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=main&service=github
+   :target: https://coveralls.io/github/sckott/pyminer?branch=main
 
 
 Contents
@@ -106,4 +106,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

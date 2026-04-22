@@ -35,7 +35,7 @@ Development version
 Search
 ======
 
-Strongly recommend for search using your email in the mailto parameter in the 
+Strongly recommend for search using your email in the mailto parameter in the
 Miner() call to get in the "fast lane".
 
 .. code-block:: python
@@ -49,7 +49,7 @@ Miner() call to get in the "fast lane".
 Fetch
 =====
 
-If you have a Crossref Text and Data Mining key/token, you can give it in the 
+If you have a Crossref Text and Data Mining key/token, you can give it in the
 tdm_key parameter in the Miner() call
 
 .. code-block:: python
@@ -67,7 +67,7 @@ tdm_key parameter in the Miner() call
     out[0].type
     out[0].parse()
 
-    # an Elsevier article - BEWARE, they check IP addresses, so your IP address 
+    # an Elsevier article - BEWARE, they check IP addresses, so your IP address
     # must be at a member institution or similar
     from pyminer import Miner
     import os
@@ -104,6 +104,5 @@ Meta
 .. |travis| image:: https://travis-ci.org/sckott/pyminer.svg
    :target: https://travis-ci.org/sckott/pyminer
 
-.. |coverage| image:: https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=master&service=github
-   :target: https://coveralls.io/github/sckott/pyminer?branch=master
-
+.. |coverage| image:: https://coveralls.io/repos/sckott/pyminer/badge.svg?branch=main&service=github
+   :target: https://coveralls.io/github/sckott/pyminer?branch=main
