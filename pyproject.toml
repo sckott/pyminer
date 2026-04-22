@@ -1,0 +1,53 @@
+[project]
+name = "pyminer"
+dynamic = ["version"]
+description = "Python client for text mining via Crossref metadata"
+readme = "README.md"
+authors = [
+    { name = "Scott Chamberlain", email = "myrmecocystus@gmail.com" }
+]
+license = { file = "LICENSE.md" }
+requires-python = ">=3.10"
+dependencies = [
+    "habanero>=2.3.0",
+    "lxml>=6.1.0",
+    "pdftotext>=3.0.0",
+    "platformdirs>=4.9.6",
+    "requests>=2.33.1",
+]
+classifiers = [
+  'Development Status :: 3 - Alpha',
+  'Intended Audience :: Science/Research',
+  'Natural Language :: English',
+  'License :: OSI Approved :: MIT License',
+  'Programming Language :: Python',
+  'Programming Language :: Python :: 3.10',
+  'Programming Language :: Python :: 3.11',
+  'Programming Language :: Python :: 3.12',
+  'Programming Language :: Python :: 3.13',
+  'Programming Language :: Python :: 3.14',
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "pyminer/__init__.py"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.11",
+]
+test = [
+    "vcrpy>=8.1.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/sckott/pyminer"
+Repository = "https://github.com/sckott/pyminer"
+"Bug Tracker" = "https://github.com/sckott/pyminer/issues"
+Changelog = "https://github.com/sckott/pyminer/blob/main/Changelog.rst"
+
+[tool.ruff]
+line-length = 88

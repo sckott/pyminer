@@ -3,7 +3,7 @@ import os
 import hashlib
 from .extract import extract
 from lxml import etree
-from appdirs import user_cache_dir
+from platformdirs import user_cache_dir
 
 # content and file types
 def detect_type(x):

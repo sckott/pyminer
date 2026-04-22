@@ -1,28 +1,41 @@
-all: build install
-
-.PHONY: build install test docs distclean dist upload
-
-build:
-	python3 setup.py build
+.PHONY: install test docs
 
 install:
-	python3 setup.py install
+	uv pip install .
 
 test:
-	pytest --verbose
+	uv run pytest --record-mode=once --cov-report term --cov=pyminer test/
+
+test_no_vcr:
+	uv run pytest --disable-recording --cov-report term --cov=pyminer test/
 
 docs:
 	cd docs;\
 	make html
 
-distclean:
-	rm dist/*
+opendocs:
+	open docs/_build/html/index.html
+
+clean:
+	rm -rf dist/* build/*
 
 dist:
-	python3 setup.py sdist bdist_wheel --universal
+	python -m build
 
-register:
-	python3 setup.py register
+lint-fix:
+	uv run ruff check --select I --fix pyminer
 
-upload:
-	twine upload dist/*
+lint-check:
+	uv run ruff check pyminer
+
+format-fix:
+	uv run ruff format pyminer
+
+format-check:
+	uv run ruff format --check pyminer
+
+ipython:
+	uv run --with rich --with ipython python -m IPython
+
+py:
+	uv run python
