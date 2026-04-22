@@ -1,18 +1,9 @@
 # pyminer
 
-[![docs](https://readthedocs.org/projects/pyminer/badge/?version=latest)](http://pyminer.readthedocs.io/en/latest/?badge=latest)
+> [!WARNING]
+> Crossref retired their text and data mining support in 2020, see <https://www.crossref.org/blog/evolving-our-support-for-text-and-data-mining/>
 
 Python client for text mining leveraging [Crossrefs Text and Data Mining service](http://tdmsupport.crossref.org/researchers).
-
-[Source on GitHub at sckott/pyminer](https://github.com/sckott/pyminer)
-
-Other Crossref text mining (and related) clients:
-
-- R: [rcrossref](https://github.com/ropensci/rcrossref)
-- R: [crminer](https://github.com/ropenscilabs/crminer)
-- R: [fulltext](https://github.com/ropensci/fulltext)
-- Ruby: [textminer](https://github.com/sckott/textminer)
-- Python: [habanero](https://github.com/sckott/habanero)
 
 ## Installation
 
