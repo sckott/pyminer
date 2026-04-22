@@ -20,7 +20,7 @@ class Miner(object):
     # set a mailto address
     Miner(mailto = "foo@bar.com")
     # set your Crossref TDM key
-    Miner(tdmkey = "123456")
+    Miner(tdm_key = "123456")
 
   **Authentication**
 
@@ -71,8 +71,8 @@ class Miner(object):
   |
   |
   '''
-  def __init__(self, mailto = None, tdmkey = None):
-    self.tdm_key = tdmkey
+  def __init__(self, mailto = None, tdm_key = None):
+    self.tdm_key = tdm_key
     self.mailto = mailto
 
   def __repr__(self):

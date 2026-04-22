@@ -50,7 +50,7 @@ Fetch
 =====
 
 If you have a Crossref Text and Data Mining key/token, you can give it in the 
-tdmkey parameter in the Miner() call
+tdm_key parameter in the Miner() call
 
 .. code-block:: python
 
@@ -71,7 +71,7 @@ tdmkey parameter in the Miner() call
     # must be at a member institution or similar
     from pyminer import Miner
     import os
-    m = Miner(mailto = os.environ['crossref_email'], tdmkey = os.environ['CROSSREF_TDM'])
+    m = Miner(mailto = os.environ['crossref_email'], tdm_key = os.environ['CROSSREF_TDM'])
     x = m.search(ids = "10.1016/j.funeco.2010.11.003")
     out = x.fetch(type = "xml")
     out

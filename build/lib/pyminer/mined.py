@@ -155,7 +155,7 @@ class Mined(object):
 
         from pyminer import Miner
         import os
-        m = Miner(mailto = os.environ['crossref_email'], tdmkey = os.environ['CROSSREF_TDM'])
+        m = Miner(mailto = os.environ['crossref_email'], tdm_key = os.environ['CROSSREF_TDM'])
         x = m.search(ids = "10.1016/j.funeco.2010.11.003")
         out = x.fetch(type = "xml")
         out
